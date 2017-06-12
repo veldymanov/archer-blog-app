@@ -131,7 +131,7 @@ var articlesLoader = {
 				context: atclsBtn,
 				success: function(response) {
 				
-					var loadIndex = this.data('loadIndex');
+					var loadIndex = $(this).data('loadindex');
 					
 					var atclsItem = $("<li class='atcls-item'></li>");					
 					var atcl = $("<article class='atcl'></article>");
@@ -139,12 +139,11 @@ var articlesLoader = {
 					atcl.append("<figure class='atcl-fig'><img src='images/atcl" + 1 +".jpg' alt='Article " + 1 + ", Picture'/></figure>");
 					
 					atcl.append("<div class='atcl-txt'><h3>" + response[0].head + "</h3><p>" + response[0].txt + "</p></div>");
-					details.append("<li><strong>Depart Date: </strong> " + response[flightId].depart_date + "</li>");
-					details.append("<li><strong>Flight Number: </strong> " + response[flightId].flight_number + "</li>");
 					
-					atcl.append("<button class='atcl-btn'><a href=" + response[0].head + ">Read More</a></button>");
+					atcl.append("<button class='atcl-btn'><a href=" + response[0].ref + ">Read More</a></button>");
 					
-					atclsItem.append(atcl).slideDown();					
+					atclsItem.append(atcl);	
+					$('#atcls').append(atclsItem);
 				},
 				error: function(request, errorType, errorMessage) {
 					alert('Error: ' + errorType + ' with message: ' + errorMessage);
@@ -158,12 +157,10 @@ var articlesLoader = {
 			});	
 			
 		} else {
-			
-		//	confirmation.ticket.slideToggle();			
+					
 		}
 	}
 };
-
 
 //------------------------------------------
 //	jQuery
@@ -210,5 +207,6 @@ jQuery(document).ready(function(){
 	//------------------------------------------
 	//	Load More Articles (Main)
 	//------------------------------------------
-	$(".atcls-btn").on('click', articlesLoader);		
+	$(".atcls-btn").on('click', articlesLoader.loadArticles);	
+
 });
