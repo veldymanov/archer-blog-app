@@ -1,0 +1,22 @@
+Требования:
+1. HTML5
+2. CSS3 Media Queries, Flexbox.
+3. Максимальная ширина сайта 1200 пикселей. На больших мониторах (от 1200 пикселей по ширине) сайт центрируется.
+4. Минимальная ширина 320 пикселей. Как должны пересыпаться блоки показано в двух дополнительных макетах ...-640рх.psd.
+5. Кроссбраузерность "-2 поколения назад". (IE11, Google Chrome49). 
+6. Оптимизация графики.
+
+/*Browser Sync*/
+C:\Users\User\Documents\GitHub\archer\archer-blog-app
+	browser-sync start --server --files "*.*"
+
+
+
+/*Sass run*/
+C:\Users\User\Documents\GitHub\archer\archer-blog-app\style
+	sass scss-blog-homepage/blog-homepage.scss blog-homepage.css
+	sass --update
+
+/*Sass --watch*/
+C:\Users\User\Documents\GitHub\archer\archer-blog-app\style
+	sass --watch scss-blog-homepage:scss-blog-homepage/..
