@@ -210,5 +210,5 @@ jQuery(document).ready(function(){
 	//------------------------------------------
 	//	Load More Articles (Main)
 	//------------------------------------------
-	$(".atcls-btn").on('click.details', articlesLoader);		
+	$(".atcls-btn").on('click', articlesLoader);		
 });
