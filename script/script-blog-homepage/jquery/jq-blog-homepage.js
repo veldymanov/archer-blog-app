@@ -133,7 +133,7 @@ var articlesLoader = {
 				
 					var loadIndex = this.data('loadIndex');
 					
-					var atcls-item = $("<li class='atcls-item'></li>");					
+					var atclsItem = $("<li class='atcls-item'></li>");					
 					var atcl = $("<article class='atcl'></article>");
 					
 					atcl.append("<figure class='atcl-fig'><img src='images/atcl" + 1 +".jpg' alt='Article " + 1 + ", Picture'/></figure>");
@@ -144,7 +144,7 @@ var articlesLoader = {
 					
 					atcl.append("<button class='atcl-btn'><a href=" + response[0].head + ">Read More</a></button>");
 					
-					atcls-item.append(atcl).slideDown();					
+					atclsItem.append(atcl).slideDown();					
 				},
 				error: function(request, errorType, errorMessage) {
 					alert('Error: ' + errorType + ' with message: ' + errorMessage);
