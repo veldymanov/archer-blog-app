@@ -149,10 +149,10 @@ var articlesLoader = {
 					alert('Error: ' + errorType + ' with message: ' + errorMessage);
 				},
 				beforeSend: function() {
-
+					// Will start before ajax-request sending
 				},
 				complete: function() {
-
+					// Will stop immediatly after functions success or error
 				}
 			});	
 			
@@ -207,6 +207,6 @@ jQuery(document).ready(function(){
 	//------------------------------------------
 	//	Load More Articles (Main)
 	//------------------------------------------
-	$(".atcls-btn").on('click', articlesLoader.loadArticles);	
+	$("#atcls-btn").on('click', articlesLoader.loadArticles);	
 
 });
