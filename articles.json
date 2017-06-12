@@ -1,7 +1,75 @@
-[
-	{
-		"head": "Hello everybody!!!",
-		"txt": "hu huh huhuhufjdskjfkj;ghkd;lhmdgflhbdjffgho ",
-		"ref": "#"
-	}
-]
+{
+	"Description" :	{
+						"atclRef"	: "Article Reference:   'embed-system-dev.html' ",			
+						"mobView"	: "Article mobile view: '' | 'attn-mobile' ", 		
+						"imgName"	: "image name:          'atcl3.jpg' ", 
+						"head"		: "Article header <h3>: 'Web Programming' ",				
+						"txt"		: "Article text <p>:    'This article is about web programming...'"		
+					},
+	
+	"articles" : [
+					{
+						"atclRef"	: "#",
+						"mobView"	: "",
+						"imgName"	: "atcl2.jpg", 
+						"head"		: "Loading 1",
+						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzzz"		
+					},
+					{
+						"atclRef"	: "#",
+						"mobView"	: "attn-mobile",
+						"imgName"	: "atcl7.jpg", 
+						"head"		: "Loading 2",
+						"txt"		: "Today, many financial institutions are thinking about introducing a different software to treir businesses, because it can eliminate execessive bureaucratic hurdles in the bank infrastructure. Many business processes can be automated QQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"		
+					},	
+					{
+						"atclRef"	: "#",
+						"mobView"	: "",
+						"imgName"	: "atcl1.jpg", 
+						"head"		: "Loading 3",
+						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzz"		
+					},
+					{
+						"atclRef"	: "#",
+						"mobView"	: "",
+						"imgName"	: "atcl7.jpg", 
+						"head"		: "Loading 4",
+						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzzz"		
+					},
+					{
+						"atclRef"	: "#",
+						"mobView"	: "",
+						"imgName"	: "atcl5.jpg", 
+						"head"		: "Loading 5",
+						"txt"		: "Today, many financial institutions are thinking about introducing a different software to treir businesses, because it can eliminate execessive bureaucratic hurdles in the bank infrastructure. Many business processes can be automated QQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"		
+					},
+					{
+						"atclRef"	: "#",
+						"mobView"	: "",
+						"imgName"	: "atcl2.jpg", 
+						"head"		: "Loading 6",
+						"txt"		: "Today, many financial institutions are thinking about introducing a different software to treir businesses, because it can eliminate execessive bureaucratic hurdles in the bank infrastructure. Many business processes can be automated QQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"		
+					},
+					{
+						"atclRef"	: "#",
+						"mobView"	: "",
+						"imgName"	: "atcl1.jpg", 
+						"head"		: "Loading 7",
+						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzz"		
+					},
+					{
+						"atclRef"	: "#",
+						"mobView"	: "attn-mobile",
+						"imgName"	: "atcl7.jpg", 
+						"head"		: "Loading 8",
+						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzzz"		
+					},	
+					{
+						"atclRef"	: "#",
+						"mobView"	: "",
+						"imgName"	: "atcl1.jpg", 
+						"head"		: "Loading 9",
+						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzz"		
+					}				
+				]
+}

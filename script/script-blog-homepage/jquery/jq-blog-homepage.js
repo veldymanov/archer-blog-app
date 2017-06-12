@@ -120,30 +120,40 @@ var touchslider = {
 //------------------------------------------
 var articlesLoader = {
 	
-	loadArticles: function() {
-		var atclsBtn = this;
-		
-		if( $(this).data('loadindex') === 0 ){
+	createArticles: function(resp) {
+		var i0 = $('#atcls-btn').data('index0'); 	//Loaded articles with HTML
+		var i = $('#atcls-btn').data('loadindex');	//Loaded articles with JS
+		var l = ( (i + 4) < resp["articles"].length ) ? (i + 4) : resp["articles"].length;
+								
+		if (i < l) {
+			for (i; i < l; i++){
+				var atclsItem = $("<li class='atcls-item'></li>");
+				var atcl = $("<article class='atcl " + resp["articles"][i].mobView + "'></article>");
+					
+				atcl.append("<figure class='atcl-fig'><img src='images/" + resp["articles"][i].imgName +"' alt='Article " + (i0 + i + 1) + ", Picture'/></figure>");
+					
+				atcl.append("<div class='atcl-txt'><h3>" + resp["articles"][i].head + "</h3><p>" + resp["articles"][i].txt + "</p></div>");
+					
+				atcl.append("<button class='atcl-btn'><a href=" + resp["articles"][i].atclRef + ">Read More</a></button>");
+					
+				atclsItem.append(atcl);	
+				$('#atcls').append(atclsItem);
+			}
+		}
+					
+		$('#atcls-btn').data().loadindex = l;		
+	},
+	
+	loadArticles: function() {	
+		if( $(this).data('loadindex') === 0 ) {
 			$.ajax('articles.json', {
 				contextType: 'application/json',
 				dataType: 'json',
 				timeout: 3000,
-				context: atclsBtn,
-				success: function(response) {
-				
-					var loadIndex = $(this).data('loadindex');
-					
-					var atclsItem = $("<li class='atcls-item'></li>");					
-					var atcl = $("<article class='atcl'></article>");
-					
-					atcl.append("<figure class='atcl-fig'><img src='images/atcl" + 1 +".jpg' alt='Article " + 1 + ", Picture'/></figure>");
-					
-					atcl.append("<div class='atcl-txt'><h3>" + response[0].head + "</h3><p>" + response[0].txt + "</p></div>");
-					
-					atcl.append("<button class='atcl-btn'><a href=" + response[0].ref + ">Read More</a></button>");
-					
-					atclsItem.append(atcl);	
-					$('#atcls').append(atclsItem);
+		//		context: atclsBtn,
+				success: function(response) {									
+					articlesLoader.createArticles(response);
+					articlesLoader.resp = response;
 				},
 				error: function(request, errorType, errorMessage) {
 					alert('Error: ' + errorType + ' with message: ' + errorMessage);
@@ -157,7 +167,7 @@ var articlesLoader = {
 			});	
 			
 		} else {
-					
+			articlesLoader.createArticles(articlesLoader.resp);		
 		}
 	}
 };
