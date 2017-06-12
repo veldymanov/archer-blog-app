@@ -123,7 +123,7 @@ var articlesLoader = {
 	loadArticles: function() {
 		var atclsBtn = this;
 		
-		if( $(this).data('loadIndex') === 0 ){
+		if( $(this).data('loadindex') === 0 ){
 			$.ajax('articles.json', {
 				contextType: 'application/json',
 				dataType: 'json',
