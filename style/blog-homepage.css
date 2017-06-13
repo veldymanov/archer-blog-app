@@ -8,9 +8,6 @@
   font-family: proxima-nova;
   src: url(../fonts/ProximaNovaSoft-Bold.otf);
   font-weight: bold; }
-@font-face {
-  font-family: proxima-nova-regular;
-  src: url(../fonts/ProximaNovaSoft-Regular.otf); }
 * {
   box-sizing: border-box; }
 
