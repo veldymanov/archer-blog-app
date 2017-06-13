@@ -20,14 +20,36 @@ $btnBgrColor: #EBEBEB;
     transition: $prop $dur $time-func $delay;         	// Standard syntax		
 }
 
+//-----------------------------------------
+//	Fonts 
+//-----------------------------------------
+@font-face {
+    font-family: proxima-nova;
+    src: url(../fonts/ProximaNova-Light.otf);
+}
+
+@font-face {
+    font-family: proxima-nova;
+	src: url(../fonts/ProximaNovaSoft-Bold.otf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: proxima-nova-regular;
+	src: url(../fonts/ProximaNovaSoft-Regular.otf);
+}
+
 //------------------------------------------
 //	Base Elements
 //------------------------------------------
 *{box-sizing: border-box;}
 
+html{
+	font-family: proxima-nova, sans-serif;
+}
+
 body {
 	color: $darkTextColor;
-	font-family: Arial, sans-serif;
 	font-size: 16px;
 	line-height: 1.5;
 	max-width: 1200px;
@@ -56,6 +78,11 @@ p {
 	padding: 0;	
 }
 
+address {
+	font: 1.3em normal;
+	line-height: 1;
+}
+
 a {
 	color: $darkTextColor;
 	&:active, &:hover, &:focus {
@@ -70,17 +97,14 @@ figure {
 
 button {
 	-webkit-appearance: none;/*Remove Safari mobile rounded coners*/
-	background-color: $btnBgrColor;
+	background-color: rgba($btnBgrColor, 1);
 	border: none;
 	border-radius: 50px;
 	cursor: pointer;
+	font-family: inherit;
 	font-weight: bold;
 	padding: 0;
-	&:hover {
-		background-color: darken($btnBgrColor, 7%);
-	}
 	&:active, &:focus {
-		background-color: darken($btnBgrColor, 15%);
 		outline: none;
 	}
 	a {
@@ -121,22 +145,38 @@ button {
 	padding: 10px 0;
 }
 
-.head-top { //flex-container
+.head-top { 								//flex-container
 	align-items: flex-end;
 	display: flex;
 	justify-content: space-between;
 	padding: 5px 5px 20px 5px;
 	position: relative;
+	.logo {									//flex-item
+		flex-shrink: 0;
+	}
+	.head-nav {								//flex-item
+		flex-basis: 55%;
+	}
+	.head-btn {								//flex-item
+		@include respond-to(max-width, 640px) {
+			align-self: center;
+			flex-basis: 150px;	
+		}
+	}
+	.menu-icon {							//flex-item
+		align-self: center;
+		flex-basis: 50px;
+	}
+	
 	@include respond-to(max-width, 640px) {
 		justify-content: space-around;
 		padding: 15px 0 20px 0;		
 	}		
 }
 
-.logo { 		//flex-item
+.logo {
 	background: url(../images/as-logo-moto.svg) no-repeat;
 	background-size: contain;
-	flex-shrink: 0;
 	height: 55px;
 	width: 260px;	
 	@include respond-to(max-width, 500px){
@@ -153,8 +193,7 @@ button {
 	width: 100%;
 }
 
-.head-nav { 	//flex-item
-	flex-basis: 55%;
+.head-nav {
 	@include respond-to(max-width, 640px) {
 		direction:rtl;
 		display: none;
@@ -166,24 +205,20 @@ button {
 		z-index: 1;
 	}
 	@include respond-to(min-width, 640px) {
-		display: block !important; //override js
+		display: block !important; 			//override js
 	}
 }
 
 @import 'head-nav';
 
-.head-btn {		//flex-item
-	align-self: center;
+.head-btn {
 	display: none;
-	flex-basis: 150px;	
 	@include respond-to(max-width, 640px) {
 		display: block;
 	}
 }
-.menu-icon {	//flex-item
+.menu-icon {
 	display: none;
-	align-self: center;
-	flex-basis: 50px;
 	height: 40px;
 	@include respond-to(max-width, 640px) {
 		display: block;
@@ -215,7 +250,7 @@ button {
 //------------------------------------------
 .main {
 	margin: 0;
-	padding: 0;
+	padding: 0 0 20px 0;
 }
 
 .main-section {
@@ -223,19 +258,19 @@ button {
 	padding: 0;
 }
 
-.atcls { 		//flex-container
+.atcls { 										//flex-container
 	display: flex;
 	flex-direction: row-reverse;
 	flex-wrap: wrap;
 	justify-content: space-around;
 	margin: 0;
 	padding: 0;	
-}
-
-.atcls-item { 	//flex-item
-	@include respond-to(max-width, 640px) {		
-		flex-basis: 100%;
-	}	
+	
+	.atcls-item { 								//flex-item
+		@include respond-to(max-width, 640px) {		
+			flex-basis: 100%;
+		}	
+	}
 }
 
 .atcl { 		
@@ -243,7 +278,6 @@ button {
 	padding: 20px 10px;
 	position: relative;
 	width: 300px;
-	
 	&.hire {
 		.atcl-txt{
 			background-color: darken(#ffffff, 10%);
@@ -253,20 +287,28 @@ button {
 			display: block;
 			margin: 20px auto;
 		}
+		
 		@include respond-to(max-width, 640px) {		
 			display: none;	
 		}		
-	}
-	
+	}	
+		
 	@include respond-to(max-width, 640px) {		//flex-container
 		align-items: center;
 		display: flex;
 		justify-content: space-around;
 		padding: 5px 0;
 		width: 100%;
+		.atcl-fig {								//flex-item
+			flex-basis: 100px;
+			flex-shrink: 0;		
+		}
+		.atcl-txt {								//flex-item
+			flex-basis: 70%;			
+		}
 		
 		&.attn-mobile {
-			.atcl-fig {
+			.atcl-fig {							//flex-item
 				background-color: rgba(0, 0, 0, 0.5);
 				flex-basis: 95%;
 				flex-shrink: 1;
@@ -277,7 +319,7 @@ button {
 					z-index: -1;
 				}
 			}
-			.atcl-txt {
+			.atcl-txt {							//flex-item
 				left: 10px;
 				right: 10px;
 				top: 50%;
@@ -299,45 +341,47 @@ button {
 	img {
 		position: relative;
 		width: 100%;
-		@include respond-to(max-width, 640px) {		//flex-item
+		
+		@include respond-to(max-width, 640px) {		
 			left: -25px;
 			width: 150px;
 		}
 	}
-	@include respond-to(max-width, 640px) {		//flex-item
+	
+	@include respond-to(max-width, 640px) {	
 		height: auto;
-		flex-basis: 100px;
-		flex-shrink: 0;
 	}
 }
 
-.atcl-txt {		//flex-item
-	height: 210px;
-	overflow: hidden;
-	
+.atcl-txt {
+	height: 208px;
+	overflow: hidden;	
 	h3 {
 		line-height: 1.7;
 		padding: 20px 0 10px 0;
+		
 		@include respond-to(max-width, 640px) {		
 			padding: 0 0 0 10px;
 		}				
 	}
 	p {
 		line-height: 1.3;
+		
 		@include respond-to(max-width, 640px) {		
 			display: none;
 		}		
 	}
-	@include respond-to(max-width, 640px) {		//flex-item
+	
+	@include respond-to(max-width, 640px) {	
 		height: auto;
-		flex-basis: 70%;
 	}
 }
 
 .atcl-btn {		
 	font-size: 0.9em;
 	margin: 20px 0 5px 0;
-	@include respond-to(max-width, 640px) {		//flex-item
+	
+	@include respond-to(max-width, 640px) {	
 		background-color: transparent;
 		height: 100%;
 		left: 0;
@@ -363,3 +407,142 @@ button {
 	margin: 20px auto;
 	padding: 20px 50px; 
 }
+
+//------------------------------------------
+//	Footer
+//------------------------------------------
+.foot {
+	background: url(../images/bg-contacts-teaser-people.png) no-repeat,
+				url(../images/bg-contacts-teaser.jpg) no-repeat; //bg-contacts-teaser-people.png
+	background-position:  right bottom, center;
+	background-size: 120%, cover;
+	height: 240px;
+	width: 100%;
+	
+	@include respond-to(max-width, 900px) {		
+		background-size: 140%, cover;
+	}	
+	@include respond-to(max-width, 640px) {		
+		background-size: 170%, cover;
+	}	
+	@include respond-to(max-width, 450px) {
+		background-position:  right 165px, center;	
+		background-size: 220%, cover;
+		height: 320px
+	}		
+}
+
+.foot-container { 						//flex-container
+	color: $lightTextColor;
+	display: flex;
+	height: 100%;
+	justify-content: space-around;
+	padding: 20px 10px;
+	.foot-item {						//flex-item
+		&:first-child {
+			flex-basis: 225px;
+			flex-shrink: 0;
+		}
+		&:nth-child(2) {
+			align-self: baseline;
+			flex-basis: 200px;
+			flex-shrink: 0;
+		}
+		&:nth-child(3) {
+			align-self: baseline;
+			flex-basis: 320px;
+		
+			@include respond-to(max-width, 750px) {		
+				align-self: flex-start;
+			}			
+			@include respond-to(max-width, 640px) {		
+				display: none;
+			}	
+		}
+		&:last-child {
+			align-self: flex-end;
+		}	
+	}
+			
+	@include respond-to(max-width, 450px) {		
+		flex-wrap: wrap;
+		justify-content: center;
+	}	
+}
+
+.foot-item {
+	p {
+		font-size: 2.4em;
+		padding-bottom: 15px;
+	}
+	a {
+		color: $brandColor;
+		font-weight: bold;
+	}	
+	@include respond-to(max-width, 640px) {		
+		& > a {
+			display: none;
+		}
+	}
+	@include respond-to(max-width, 450px) {		
+		&:first-child {
+			padding-left: 15px;
+		}
+	}	
+}
+
+.phone {
+	padding: 20px 0;
+	address {
+		font-size: 0.7em;
+	}
+}
+
+.social-media-item {
+	border-radius: 50%;
+	display: inline-block;
+	height: 40px;
+	margin-right: 5px;
+	width: 40px;
+	a {
+		cursor: pointer;
+		display: block;
+		height: 100%;
+		text-indent: -9999px;
+		width: 100%;
+	}
+	&.skype {
+		background: #fff url(../images/icon-skype.png) no-repeat;
+		background-position: center;
+		background-size: 47px;	
+	}
+	&.facebook {
+		background: #fff url(../images/icon-facebook.png) no-repeat;
+		background-position: center;
+		background-size: 47px;		
+	}
+	&.linkedin {
+		background: #fff url(../images/icon-linkedin.png) no-repeat;
+		background-position: center;
+		background-size: 47px;		
+	}
+	&.twitter {
+		background: #fff url(../images/icon-twitter.png) no-repeat;
+		background-position: center;
+		background-size: 47px;			
+	}
+}
+
+.btn-foot {
+	background-color: rgba($btnBgrColor, 0.2);
+	margin: 5px;
+	a {
+		color: $lightTextColor;
+		font-size: 0.9em;
+		font-weight: normal;
+		padding: 5px 10px;
+		&:hover, &:focus, &:active {
+			color: $brandColor;
+		}
+	}
+}	

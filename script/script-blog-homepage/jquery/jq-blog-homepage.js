@@ -116,21 +116,28 @@ var touchslider = {
 };
 
 //------------------------------------------
-//	Load More Articles (Main)
+//	Articles Loader (Main)
 //------------------------------------------
 var articlesLoader = {
 	
 	createArticles: function(resp) {
 		var i0 = $('#atcls-btn').data('index0'); 	//Loaded articles with HTML
 		var i = $('#atcls-btn').data('loadindex');	//Loaded articles with JS
-		var l = ( (i + 4) < resp["articles"].length ) ? (i + 4) : resp["articles"].length;
-								
+		var l;
+		
+		if ( (i + 4) < resp["articles"].length )  {
+			l = (i + 4);
+		} else {
+			l = resp["articles"].length;
+			$('#atcls-btn').attr('disabled', true);
+		}
+		
 		if (i < l) {
 			for (i; i < l; i++){
 				var atclsItem = $("<li class='atcls-item'></li>");
 				var atcl = $("<article class='atcl " + resp["articles"][i].mobView + "'></article>");
 					
-				atcl.append("<figure class='atcl-fig'><img src='images/" + resp["articles"][i].imgName +"' alt='Article " + (i0 + i + 1) + ", Picture'/></figure>");
+				atcl.append("<figure class='atcl-fig'><img src='images/articles-img/" + resp["articles"][i].imgName +"' alt='Article " + (i0 + i + 1) + ", Picture'/></figure>");
 					
 				atcl.append("<div class='atcl-txt'><h3>" + resp["articles"][i].head + "</h3><p>" + resp["articles"][i].txt + "</p></div>");
 					
@@ -139,9 +146,9 @@ var articlesLoader = {
 				atclsItem.append(atcl);	
 				$('#atcls').append(atclsItem);
 			}
+				
+			$('#atcls-btn').data().loadindex = l;	
 		}
-					
-		$('#atcls-btn').data().loadindex = l;		
 	},
 	
 	loadArticles: function() {	
@@ -171,6 +178,7 @@ var articlesLoader = {
 		}
 	}
 };
+
 
 //------------------------------------------
 //	jQuery
