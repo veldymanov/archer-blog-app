@@ -31,8 +31,10 @@ var touchslider = {
 			this.ontouchmove = function(e) {
 				touchslider.touchMove($(this), e);
 				
+			//	e.stopPropagation();
+				e.preventDefault();
 				if (touchslider.sliding) {
-					e.preventDefault();
+					
 				}
 			};		
 				
