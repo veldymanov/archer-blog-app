@@ -259,8 +259,7 @@ button {
 	flex-wrap: wrap;
 	justify-content: space-around;
 	margin: 0;
-	padding: 0;	
-	
+	padding: 0;		
 	.atcls-item { 								//flex-item
 		@include respond-to(max-width, 640px) {		
 			flex-basis: 100%;
