@@ -118,80 +118,44 @@ var touchslider = {
 };
 
 //------------------------------------------
-//	Articles Loader (Main)
+//	.... (Main)
 //------------------------------------------
-var articlesLoader = {
+//------------------------------------------
+//	Interesting Articles Loader (Main)
+//------------------------------------------
+var intrArticlesLoader = {
 	
 	createArticles: function(resp, nmbrs) {
-		var i = $('#atcls-btn').data('loadindex');	//Loaded articles with JS
 		var l;
 		
-		if ( (i + nmbrs) < resp["articles"].length )  {
-			l = (i + nmbrs);
+		if ( nmbrs < resp["articles"].length )  {
+			l = nmbrs;
 		} else {
 			l = resp["articles"].length;
-			$('#atcls-btn').attr('disabled', true);
 		}
-		
-		if (i < l) {
-			for (i; i < l; i++){
-				var atclsItem = $("<li class='atcls-item'></li>");
-				var atcl = $("<article class='atcl " + resp["articles"][i].mobView + "'></article>");
 				
-				if (resp["articles"][i].mobView === "attn-mobile") {
-					atcl.append( "<figure class='atcl-fig'>" + 
-						"<img src='images/articles-imgs/" +	
-								resp["articles"][i].imgName + ".desktop.jpg" + 
-							"'alt='Article " + (i + 1) + ", Picture'/></figure>" );
-				} else {	
-					atcl.append( "<figure class='atcl-fig'>" + 
-						"<img src='images/articles-imgs/" +	
-								resp["articles"][i].imgName + ".mobile.jpg" + 
-							"'alt='Article " + (i + 1) + ", Picture'" + 
-							"srcset = 'images/articles-imgs/" + 
-								resp["articles"][i].imgName + ".mobile.jpg 640w," +
-							"images/articles-imgs/" + 
-								resp["articles"][i].imgName + ".desktop.jpg 1200w' /></figure>" );
-				}	
-				
-				atcl.append("<div class='atcl-txt'><h3>" + resp["articles"][i].head + "</h3><p>" + resp["articles"][i].txt + "</p></div>");
-				
-					
-				atcl.append("<div class='atcl-btn'><a  href=" + resp["articles"][i].atclRef + ">Read More</a></div>");
-					
-				atclsItem.append(atcl);	
-				$('#atcls').append(atclsItem);
-			}
-				
-			$('#atcls-btn').data().loadindex = l;	
-		}
+			for (var i = 0; i < l; i++){
+				var atclsItem = $("<li class='intr-atcls-list-item'></li>");
+				var a = $("<a href=" + resp["articles"][i].atclRef + ">" 
+									 + resp["articles"][i].head + "</a>");
+
+				atclsItem.append(a);	
+				$('#js-intr-atcls-list').append(atclsItem);
+			}				
 	},
 	
 	loadArticles: function(nmbrs) {	
-		if( $('#atcls-btn').data('loadindex') === 0 ) {
-			$.ajax('articles.json', {
-				contextType: 'application/json',
-				dataType: 'json',
-				timeout: 3000,
-		//		context: atclsBtn,
-				success: function(response) {									
-					articlesLoader.createArticles(response, nmbrs);
-					articlesLoader.resp = response;
-				},
-				error: function(request, errorType, errorMessage) {
-					alert('Error: ' + errorType + ' with message: ' + errorMessage);
-				},
-				beforeSend: function() {
-					// Will start before ajax-request sending
-				},
-				complete: function() {
-					// Will stop immediatly after functions success or error
-				}
-			});	
-			
-		} else {
-			articlesLoader.createArticles(articlesLoader.resp, 4);	// 4- default on-click	
-		}
+		$.ajax('articles.json', {
+			contextType: 'application/json',
+			dataType: 'json',
+			timeout: 3000,
+			success: function(response) {									
+				intrArticlesLoader.createArticles(response, nmbrs);
+			},
+			error: function(request, errorType, errorMessage) {
+				alert('Error: ' + errorType + ' with message: ' + errorMessage);
+			}
+		});			
 	}
 };
 
@@ -241,9 +205,8 @@ jQuery(document).ready(function(){
 	touchslider.createSlidePanel('.js-head-nav', 240);
 	
 	//------------------------------------------
-	//	Load More Articles (Main)
+	//	Load 5 article headers to "#js-intr-atcls-list"
 	//------------------------------------------
-	articlesLoader.loadArticles(/*atcls quantity*/ 7); //On-loading
-	$("#atcls-btn").on('click', articlesLoader.loadArticles);	
+	intrArticlesLoader.loadArticles(/*atcls quantity*/ 5); //On-loading
 
 });

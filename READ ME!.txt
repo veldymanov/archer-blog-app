@@ -1,0 +1,42 @@
+********************************************************************************
+*				Connection new article to blog-homepage! 
+*						MUST ACTIONS!
+********************************************************************************
+1. In the root 'Blog' folder create new article: "jps-vehicle.html".
+
+2. Create next article's pictures for "Blog Homepage":
+	2.1 "jps-vehicle.mobile.jpg", size 100*100. ( Will be used in 'mobile' version of Blog Homepage "index.html". )
+	2.2 "jps-vehicle.desktop.jpg", size 280*170. ( Will be used in 'desktop' version  and as 'big' pictures in 'mobile' version of Blog Homepage "index.html". Also will be used in mobile of article page "jps-vehicle.html")
+	
+	Name before ".mobile.jpg" and before ".desktop.jpg" MUST BE THE SAME!!!!
+	
+3. Put "jps-vehicle.mobile.jpg" and "jps-vehicle.desktop.jpg" to "images\articles-imgs\" folder.
+
+4. Add to "articles.json" next:
+					{
+						"id"		: "0016",
+						"atclRef"	: "jps-vehicle.html",
+						"mobView"	: "",
+						"imgName"	: "jps-vehicle", 
+						"head"		: "How To Build Your Own GPS Vehicle Tracking System",
+						"txt"		: "Today global market starts to experience a real GPS yechnology boom. The use of satellites for navigation becomes more and more popular among car owners, and those who have big automobile busineses. What are the features of this technology? What benefits it can propose to the transportation industry? "		
+					},
+	where: 
+			"id"		- articles id number ( +1 after previous article),
+			"atclRef" 	- article's HTML file name (reference),
+			"mobView"	- article's view in "Blog Homepage" mobile version. Can be:
+							* "" - standard 'small' view
+							* "attn-mobile" - 'big' view
+			"imgName"	- image name before ".mobile.jpg" and before ".desktop.jpg",
+			"head"		- Header of your article in "Blog Homepage",
+			"txt"		- Article's text in 'desctop' version of "Blog Homepage",
+
+5. Save "articles.json". Reload "index.html". Vualia!  Your article is published
+
+
+********************************************************************************
+*						Recommended actions
+********************************************************************************
+To increase efficiency of article's management next is recommended:
+
+1. All the rest pictures of article add to "images\articles-imgs\" folder. Build name of picture as next: "gps-vehicle-wave.hd.jpg".
