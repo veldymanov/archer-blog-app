@@ -418,9 +418,6 @@ button {
   padding: 2% 0; }
   .wave img {
     width: 100%; }
-  @media (max-width: 640px) {
-    .wave {
-      display: none; } }
 
 .btn-add-cmnt {
   display: block;

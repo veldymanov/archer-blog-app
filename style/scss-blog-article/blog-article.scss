@@ -559,13 +559,8 @@ button {
 	padding: 2% 0;
 	img {
 		width: 100%;
-	}
-	@include respond-to(max-width, 640px) {
-		display: none;
 	}	
 }
-
-
 
 
 //Add comment button

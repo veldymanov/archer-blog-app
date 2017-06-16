@@ -6,7 +6,7 @@
 
 2. Create next article's pictures for "Blog Homepage":
 	2.1 "jps-vehicle.mobile.jpg", size 100*100. ( Will be used in 'mobile' version of Blog Homepage "index.html". )
-	2.2 "jps-vehicle.desktop.jpg", size 280*170. ( Will be used in 'desktop' version  and as 'big' pictures in 'mobile' version of Blog Homepage "index.html". Also will be used in mobile of article page "jps-vehicle.html")
+	2.2 "jps-vehicle.desktop.jpg", size 280*170. ( Will be used in 'desktop' version  and as 'big' pictures in 'mobile' version of Blog Homepage "index.html". Also will be used in mobile version of article page "jps-vehicle.html")
 	
 	Name before ".mobile.jpg" and before ".desktop.jpg" MUST BE THE SAME!!!!
 	
