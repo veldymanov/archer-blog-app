@@ -120,6 +120,36 @@ button {
 //------------------------------------------
 //	Base Classes
 //------------------------------------------
+
+//	Clearfix
+.clearfix {
+	zoom: 1;
+	&::before, &::after {
+		content: "";
+		display: table;
+	}
+	&::after {
+		clear: both;	
+	}
+}
+
+//Adapted header
+h2.adapted {
+	font-size: 2em;
+	@include respond-to(max-width, 640px) {
+		font-size: 1.5em;
+	}	
+}
+
+// e-mail reference	
+a.email {
+	color: $brandColor;
+	&:active, &:hover, &:focus {
+		color: darken($brandColor, 10%);
+	}
+}
+
+//	btn-hire
 .btn-hire {		
 	background-color: $brandColor;	
 	border-radius: 50px;
@@ -138,7 +168,7 @@ button {
 		font-size: 1.5em;
 		font-weight: bold;
 		height: 100%;
-		line-height: 1.7;
+		line-height: 1.8;
 		text-align: center;
 		text-decoration: none;
 		width: 100%;
@@ -188,7 +218,8 @@ button {
 	background: url(../images/as-logo-moto.svg) no-repeat;
 	background-size: contain;
 	height: 55px;
-	width: 260px;	
+	width: 260px;
+	
 	@include respond-to(max-width, 500px){
 		background: url(../images/as-logo.svg) no-repeat;
 		background-size: contain;
@@ -312,7 +343,7 @@ button {
 			display: none;
 		}
 		.wave {								
-
+			display: none;
 		}		
 	}
 	
@@ -325,21 +356,22 @@ button {
 	h1 {
 		font-size: 2.5em;
 		line-height: 1.2;
-		
-		@include respond-to(max-width, 640px) {
-			font-size: 2em;
-			line-height: 1.5;
-		}	
 	} 
 	.first-paragraph {
 		font-size: 1.5em;
-		line-height: 1.3;
-		
-		@include respond-to(max-width, 640px) {
+		line-height: 1.3;	
+	}
+	
+	@include respond-to(max-width, 640px) {
+		h1 {
+			font-size: 2em;
+			line-height: 1.5;		
+		}
+		.first-paragraph {
 			font-size: 1em;
 			line-height: 1.5;
-		}		
-	}
+		}
+	}		
 }
 
 //***********************
@@ -459,22 +491,304 @@ button {
 		padding: 0 8px;
 }
 
-//*********************
-//List with RED bullets
-//*********************
-.red-bullet {
-	margin: 0;
-	padding-bottom: 20px;
-}
-.red-bullet li {
+//***********************
+//	List with RED bullets
+//***********************
+.red-bullet {  //ul
 	list-style-type: none;
-	&:before {	
-		content: '\2022 '; // Unicode bullet symbol
-		color: red;
-		font-size: 2.5em;
-		line-height: 1;
-		padding-right: 0.5em;
+	margin: 0;
+	padding: 0 0 20px 3%;	
+	& > li {
+		display: block;
+		&:before {	
+			content: '\2022 '; // Unicode bullet symbol
+			color: red;
+			font-size: 2.3em;
+			float: left;
+			line-height: 1;	
+			width: 5%;
+		}
+		p {
+			display: inline-block;
+			padding: 8px 0;
+			width: 95%;
+		}
 	}
+}
+
+//***********************
+//other-atcls touchslider
+//***********************
+.other-atcls {
+	padding: 20px 30px 10px 30px;
+	position: relative;
+	h3 {
+		line-height: 1.2;
+		font-size: 1.1em;
+	//	font-weight: normal;
+		padding: 0 5px;
+		position: relative; // Relative to <li class="touch-slider-item js-touch-slider-item">
+		transform: translateY(-50%);
+		top: 50%;
+		a {
+			text-decoration: none;
+		}
+	}
+}
+
+//	.prev, .next
+.prev, .next{
+	background: transparent;
+	cursor: pointer;
+	font-size: 50px;
+	opacity: 0.3;
+	position: absolute;
+	text-decoration: none;
+	transform: translateY(-50%);
+	top: 50%;
+	&.is-active{
+		opacity: 1;
+	}	
+		&:hover, &:active, &:focus{
+		color: #105a8f
+	}
+}
+
+.prev {
+	right: 5px;	
+}
+
+.next {
+	left: 5px;
+}
+
+//***********************
+//Related posts
+//***********************
+.related-posts {
+
+	
+}
+
+.related-atcls {						//flex-container
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;	
+
+	@include respond-to(max-width, 640px) {
+		.related-atcls-item {				//flex-item
+			flex-basis: 100%;
+		}
+	}	
+}
+
+.related-atcl {				
+	padding: 0 5px;
+	width: 210px;
+	.related-atcl-date { 	
+		color: #BBB;
+		font-size: 0.8em;
+		font-weight: bold;
+	}
+	.related-atcl-fig { 	
+		height: 121px;
+		padding: 0;
+		img {
+			height: auto;
+			width: 100%;
+		}
+	}
+	h4 {
+		line-height: 1.2;
+		padding: 10px 0 15px 10px;
+		a {
+			text-decoration: none;
+		}
+	} 
+	
+	@include respond-to(max-width, 640px) {	//flex-container
+		align-items: center;
+		display: flex;
+		height: 100%;
+		justify-content: space-around;
+		padding: 5px 0;
+		width: 100%;
+		.related-atcl-date { 				//flex-item
+			display: none;
+		}
+		.related-atcl-fig { 				//flex-item
+			flex-basis: 100px;
+			flex-shrink: 0;		
+			height: 100px;
+			overflow: hidden;
+			img {
+				height: 100%;
+				left: 50%;
+				position: relative;			
+				transform: translate(-50%, 0);
+				width: auto;
+			}
+		}
+		h4 {  								//flex-item
+			flex-basis: 70%;
+		}
+	}			
+}
+
+//*********************************************
+//	Comments
+//*********************************************
+//****************
+//	Comments Block
+//****************
+.comments-block {
+
+}
+
+.comments {	//div
+	display: none;
+}
+
+.cmnts	{	//ul
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.cmnts-item {	//li
+
+	h5 {
+		padding-top: 0;
+	}
+	div {
+		background-color: #EEE;
+		margin-bottom: 15px;
+		padding: 20px 10px 0px 20px;
+		position: relative;
+		&::before {	//triangle
+			border-color: transparent transparent #EEE transparent;
+			border-style: solid;
+			border-width: 15px 20px;
+			content: "";
+			left: 5px;
+			position: absolute; 
+			top: -29px;
+		} 
+		p {
+			font-size: 0.9em;
+			line-height: 1.2;
+		}
+		span {
+			display: block;			
+			text-align: right;
+			a {
+				color: #999;
+				display: inline-block;
+				font-weight: bold;
+				text-decoration: none;
+				&:hover, &:focus, &:active {
+					color: #555;
+				}
+				&::before {
+					background: url(../images/article-icon-reply.png) no-repeat; 
+					background-position: center;
+					background-size: contain;
+					content: ""; 
+					display: block;
+					float: left;
+					height: 27px;
+					width: 25px; 				
+				}
+			}
+		}
+	}
+}
+
+//****************
+//	Comments Form
+//****************
+.cmnts-form {
+	display: none;
+	margin: 0 auto;
+	max-width: 400px;
+	h2 {
+		padding-bottom: 0;
+	}
+	label {
+		display: block;
+		p {
+			padding: 10px 0 3px 0;
+			span {
+				color: red;
+			}
+		}
+		input {
+			border: 1px solid #CCC;
+			padding: 10px;
+			width: 100%;
+		}
+		textarea {
+			border: 1px solid #CCC;
+			width: 100%;
+		}
+	}
+	button {
+		display: block;
+		margin: 20px auto;
+		padding: 20px 50px;
+	}
+	.verification {				//flex-container
+		display: flex;
+		flex-wrap: wrap;
+		
+		p {						//flex-item
+			flex-basis: 100%;
+		}
+		figure {				//flex-item
+			background-color: #EEE;
+			border: 1px solid #CCC;
+			flex-basis: 30%;
+			flex-grow: 1;
+			padding: 0;
+			img {
+				height: 50px;
+				position: relative;
+				width: auto;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+		
+		div {				//flex-item
+			background: url(../images/article-icon-reload.png) no-repeat; 
+			background-size: contain;
+			flex-basis: 25px; 
+			height: 25px;
+			margin: 0 5px 0 0;
+			padding: 0;
+			&:hover {
+				cursor: pointer;
+			}
+			
+		}
+		
+		input {					//flex-item
+			width: 40%;
+			flex-grow: 1;
+		}
+	}
+}
+//*********************
+//	Add comment button
+//*********************
+.btn-add-cmnt {
+	display: block;
+	margin: 40px auto;
+	padding: 20px 50px; 
 }
 
 //********************************************************
@@ -484,9 +798,13 @@ button {
 
 }
 
+//**************************
 //Interesting Articles List
-.intr-atcls {
-	background: darken(#ffffff, 5%);
+//**************************
+.intr-atcls {			
+	background: darken(#ffffff, 5%) url(../images/article-archer.png) no-repeat;
+	background-position: center;
+	background-size: 70%; 
 	color: $brandColor;
 	padding: 10px 10px 30px 10px;
 	h2 {
@@ -494,14 +812,13 @@ button {
 	}
 }
 
-.intr-atcls-list {	
+.intr-atcls-list {	//ol
 	list-style-type: none;
 //	list-style-position: outside;
 	margin: 0;
 	padding: 0;
 	& > li {
 		counter-increment: customlistcounter;	
-		display: block;
 		padding: 5px 0;
 	}
 	& > li:before {
@@ -517,10 +834,11 @@ button {
 		text-decoration: none;
 		width: 85%;
 	}
-	
 }
 
-//Hire
+//*********
+//	Hire
+//*********
 .hire {
 	padding: 20px 0 40px 0;
 	h2 {
@@ -531,7 +849,9 @@ button {
 	}
 }
 
-//Asside Buttons
+//*****************
+//	Aside Buttons
+//*****************
 .btn-asd {
 	background-color: rgba($btnBgrColor, 1);
 	border-radius: 50px;
@@ -559,15 +879,16 @@ button {
 	padding: 2% 0;
 	img {
 		width: 100%;
-	}	
-}
-
-
-//Add comment button
-.btn-add-cmnt {
-	display: block;
-	margin: 20px auto;
-	padding: 20px 50px; 
+	}
+	&.mobile {
+		display: none;
+	}
+	
+	@include respond-to(max-width, 640px) {		
+		&.mobile {
+			display: block;
+		}
+	}		
 }
 
 //------------------------------------------
@@ -612,8 +933,8 @@ button {
 			flex-shrink: 0;
 		}
 		&:last-child {
+			flex-grow:	1;
 			align-self: flex-end;
-			flex-basis: 80%;
 			text-align: right;
 		}	
 	}
@@ -621,6 +942,11 @@ button {
 	@include respond-to(max-width, 450px) {		
 		flex-wrap: wrap;
 		justify-content: center;
+		.foot-item {
+			&:last-child {
+				display: none;
+			}
+		}
 	}	
 }
 
@@ -649,6 +975,13 @@ button {
 	padding: 20px 0;
 	address {
 		font-size: 0.7em;
+	}
+	a { 
+		color: $lightTextColor;
+		text-decoration: none;
+		&:active, &:hover, &:focus {
+			color: $brandColor;
+		}
 	}
 }
 

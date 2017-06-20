@@ -270,16 +270,15 @@ button {
   .atcl-fig img {
     height: auto;
     width: 100%; }
-    @media (max-width: 640px) {
+  @media (max-width: 640px) {
+    .atcl-fig {
+      height: 100px; }
       .atcl-fig img {
         height: 100%;
         left: 50%;
         position: relative;
         transform: translate(-50%, 0);
         width: auto; } }
-  @media (max-width: 640px) {
-    .atcl-fig {
-      height: 100px; } }
 
 .atcl-txt {
   height: 216px;
@@ -287,17 +286,15 @@ button {
   .atcl-txt h3 {
     line-height: 1.7;
     padding: 20px 0 10px 0; }
-    @media (max-width: 640px) {
-      .atcl-txt h3 {
-        padding: 0 0 0 10px; } }
   .atcl-txt p {
     line-height: 1.3; }
-    @media (max-width: 640px) {
-      .atcl-txt p {
-        display: none; } }
   @media (max-width: 640px) {
     .atcl-txt {
-      height: auto; } }
+      height: auto; }
+      .atcl-txt h3 {
+        padding: 0 0 0 10px; }
+      .atcl-txt p {
+        display: none; } }
 
 .atcl-btn {
   background-color: #ebebeb;
@@ -399,6 +396,11 @@ button {
   padding: 20px 0; }
   .phone address {
     font-size: 0.7em; }
+  .phone a {
+    color: #FFFFFF;
+    text-decoration: none; }
+    .phone a:active, .phone a:hover, .phone a:focus {
+      color: #EC1B24; }
 
 .social-media-item {
   border-radius: 50%;

@@ -1,47 +1,40 @@
 //------------------------------------------
 //	Mobile Menu Touchslider
 //-------------------------------------------
-var touchslider = {	
+var mobileMenuTouchSlider = {	
 	createSlidePanel: function(/*string*/ panel, /*el width px*/ width) {	
-		touchslider.width = width;
+		mobileMenuTouchSlider.width = width;
 	
 		try {
 			document.createEvent('TouchEvent');
-			/*
-			   Now we'll make our panel respond
-			   to all of the touch events.
-			*/
-			touchslider.makeTouchable(panel);
+			mobileMenuTouchSlider.makeTouchable(panel);
 		} catch (e) {
-			/*
-			  Then we aren't on a device that supports touch
-			*/
+			// Then we aren't on a device that supports touch
+		
 		} finally {					
-			/*Sliding by click*/
-
 		}
 	},
 		
 	makeTouchable: function(/*string*/ panel) {
 		$(panel).each(function() {
 			this.ontouchstart = function(e) {
-				touchslider.touchStart($(this), e);
+				mobileMenuTouchSlider.touchStart($(this), e);
 			};
 				
 			this.ontouchmove = function(e) {
-				touchslider.touchMove($(this), e);
+				mobileMenuTouchSlider.touchMove($(this), e);
 				
 			//	e.stopPropagation();
 				e.preventDefault();
-				if (touchslider.sliding) {
+				if (mobileMenuTouchSlider.sliding) {
 					
 				}
 			};		
 				
 			this.ontouchend = function(e) {		
-				if (touchslider.sliding) {
-					touchslider.sliding = false;
-					touchslider.touchEnd($(this), e);
+				if (mobileMenuTouchSlider.sliding) {
+					mobileMenuTouchSlider.sliding = false;
+					mobileMenuTouchSlider.touchEnd($(this), e);
 				} else {
 					/*
 					   We never slid so we can just return true
@@ -54,9 +47,9 @@ var touchslider = {
 	},		
 
 	touchStart: function(/*JQuery*/ elem, /*event*/ e) {	
-		touchslider.startX = e.targetTouches[0].clientX;
-		touchslider.startY = e.targetTouches[0].clientY;
-		touchslider.startRight = touchslider.getRight(elem); 
+		mobileMenuTouchSlider.startX = e.targetTouches[0].clientX;
+		mobileMenuTouchSlider.startY = e.targetTouches[0].clientY;
+		mobileMenuTouchSlider.startRight = mobileMenuTouchSlider.getRight(elem); 
 	},
 		
 	/*
@@ -65,13 +58,13 @@ var touchslider = {
 		amount they've moved.
 	*/
 	touchMove: function(/*JQuery*/ elem, /*event*/ e) { 
-		var deltaX = touchslider.startX - e.targetTouches[0].clientX;
-		var deltaY = touchslider.startY - e.targetTouches[0].clientY;
+		var deltaX = mobileMenuTouchSlider.startX - e.targetTouches[0].clientX;
+		var deltaY = mobileMenuTouchSlider.startY - e.targetTouches[0].clientY;
 			
 		if (Math.abs(deltaY) < Math.abs(deltaX)) {
-			touchslider.sliding = true;	
+			mobileMenuTouchSlider.sliding = true;	
 
-			var right = deltaX + touchslider.startRight;
+			var right = deltaX + mobileMenuTouchSlider.startRight;
 			if (right > 0) {
 				right = 0;
 			} 
@@ -87,33 +80,29 @@ var touchslider = {
 		hide or show it.  
 	 */
 	touchEnd: function(/*JQuery*/ elem, /*event*/ e) {
-		touchslider.doSlide(elem, e);
+		mobileMenuTouchSlider.doSlide(elem, e);
 	},
 		
-	/*
-		A little helper to parse off the 'px' at the end of the left
-		CSS attribute and parse it as a number.
-	*/
 	getRight: function(/*JQuery*/ elem) {
 		 return parseInt(elem.css('right'), 10);  
 	},
 		
 	doSlide: function(/*jQuery*/ elem, /*event*/ e) {
-		var right = touchslider.getRight(elem);		 
+		var right = mobileMenuTouchSlider.getRight(elem);		 
 			 
-		if ((Math.abs(right)) < ((touchslider.width / 2))) {
+		if ((Math.abs(right)) < ((mobileMenuTouchSlider.width / 2))) {
 			// Show panel
 			elem.animate({right: 0 + 'px'}, 300); 
 				
 		} else {
 			// Hide panel
-			elem.animate({right: -touchslider.width + 'px'}, 300, function(){
+			elem.animate({right: -mobileMenuTouchSlider.width + 'px'}, 300, function(){
 					$(this).hide();
 				});				
 		}
 			 		 
-		touchslider.startX = null;
-		touchslider.startY = null;
+		mobileMenuTouchSlider.startX = null;
+		mobileMenuTouchSlider.startY = null;
 	}
 };
 
@@ -122,8 +111,9 @@ var touchslider = {
 //------------------------------------------
 var articlesLoader = {
 	
-	createArticles: function(resp, nmbrs) {
+	createArticles: function(resp, indexNmbrs) {
 		var i = $('#atcls-btn').data('loadindex');	//Loaded articles with JS
+		var nmbrs = indexNmbrs || 4; // 4- default on-click
 		var l;
 		
 		if ( (i + nmbrs) < resp["articles"].length )  {
@@ -190,7 +180,7 @@ var articlesLoader = {
 			});	
 			
 		} else {
-			articlesLoader.createArticles(articlesLoader.resp, 4);	// 4- default on-click	
+			articlesLoader.createArticles(articlesLoader.resp);		
 		}
 	}
 };
@@ -235,14 +225,10 @@ jQuery(document).ready(function(){
 	$('.js-menu-icon').on('click', menuSlideIn);
 	
 
-	//------------------------------------------
-	//	Mobile Menu Touchslider Start
-	//-------------------------------------------	
-	touchslider.createSlidePanel('.js-head-nav', 240);
+	//	Mobile Menu Touchslider Start	
+	mobileMenuTouchSlider.createSlidePanel('.js-head-nav', 240);
 	
-	//------------------------------------------
 	//	Load More Articles (Main)
-	//------------------------------------------
 	articlesLoader.loadArticles(/*atcls quantity*/ 7); //On-loading
 	$("#atcls-btn").on('click', articlesLoader.loadArticles);	
 

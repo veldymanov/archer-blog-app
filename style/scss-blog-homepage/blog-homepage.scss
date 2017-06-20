@@ -20,9 +20,9 @@ $btnBgrColor: #EBEBEB;
     transition: $prop $dur $time-func $delay;         	// Standard syntax		
 }
 
-//-----------------------------------------
-//	Fonts 
-//-----------------------------------------
+//********************************************
+//	Fonts
+//********************************************
 @font-face {
     font-family: proxima-nova;
     src: url(../fonts/ProximaNova-Light.otf);
@@ -34,9 +34,9 @@ $btnBgrColor: #EBEBEB;
     font-weight: bold;
 }
 
-//------------------------------------------
+//********************************************
 //	Base Elements
-//------------------------------------------
+//********************************************
 *{box-sizing: border-box;}
 
 html{
@@ -104,9 +104,9 @@ button {
 	}
 }
 
-//------------------------------------------
+//*********************************************
 //	Base Classes
-//------------------------------------------
+//*********************************************
 .btn-hire {		
 	background-color: $brandColor;	
 	border-radius: 50px;
@@ -135,9 +135,9 @@ button {
 	}
 }
 
-//------------------------------------------
+//*********************************************
 //	Header
-//------------------------------------------
+//*********************************************
 .head {
 	padding: 10px 0;
 }
@@ -242,9 +242,9 @@ button {
 	}
 }
 
-//------------------------------------------
+//************************************************
 //	Main
-//------------------------------------------
+//************************************************
 .main {
 	margin: 0;
 	padding: 0 0 20px 0;
@@ -340,18 +340,17 @@ button {
 	img {
 		height: auto;
 		width: 100%;
-		
-		@include respond-to(max-width, 640px) {	
+	}
+	
+	@include respond-to(max-width, 640px) {	
+		height: 100px;
+		img {
 			height: 100%;
 			left: 50%;
 			position: relative;			
 			transform: translate(-50%, 0);
 			width: auto;
 		}
-	}
-	
-	@include respond-to(max-width, 640px) {	
-		height: 100px;
 	}
 }
 
@@ -360,22 +359,20 @@ button {
 	overflow: hidden;	
 	h3 {
 		line-height: 1.7;
-		padding: 20px 0 10px 0;
-		
-		@include respond-to(max-width, 640px) {		
-			padding: 0 0 0 10px;
-		}				
+		padding: 20px 0 10px 0;			
 	}
 	p {
 		line-height: 1.3;
-		
-		@include respond-to(max-width, 640px) {		
-			display: none;
-		}		
 	}
 	
 	@include respond-to(max-width, 640px) {	
 		height: auto;
+		h3 {
+			padding: 0 0 0 10px;
+		}
+		p { 
+			display: none;
+		}
 	}
 }
 
@@ -510,6 +507,13 @@ button {
 	padding: 20px 0;
 	address {
 		font-size: 0.7em;
+	}
+	a { 
+		color: $lightTextColor;
+		text-decoration: none;
+		&:active, &:hover, &:focus {
+			color: $brandColor;
+		}
 	}
 }
 

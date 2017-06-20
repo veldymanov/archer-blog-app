@@ -2,158 +2,216 @@
 	"Description": [
 					{
 						"id"		: "",
+						"date"		: "",
 						"atclRef"	: "",
 						"mobView"	: "",
 						"imgName"	: "", 
 						"head"		: "",
-						"txt"		: ""		
+						"txt"		: "",
+						"relatedAtclsId": []
 					},
 					{
-						"id"		: "0001",
-						"atclRef"	: "Article Reference:   'embed-system-dev.html' ",			
-						"mobView"	: "Article mobile view: '' | 'attn-mobile' ", 		
-						"imgName"	: "image name from 'images/articles-imgs/' name before '-desktop.jpg': 'atcl-1' ", 
-						"head"		: "Article header <h3>: 'Web Programming' ",				
-						"txt"		: "Article text <p>:    'This article is about web programming...'"		
+						"id"			: "0001",
+						"date"			: "June 18, 2017",
+						"atclRef"		: "Article Reference:   'embed-system-dev.html' ",			
+						"mobView"		: "Article mobile view: '' | 'attn-mobile' ", 		
+						"imgName"		: "image name from 'images/articles-imgs/' name before '-desktop.jpg'  : 'atcl-1' ", 
+						"head"			: "Article header <h3>: 'Web Programming' ",				
+						"txt"			: "Article text <p>:    'This article is about web programming...'",
+						"relatedAtclsId": ["0001", "0002", "0003", "0004", "0005"]
 					}
 					],											
 	"articles" : [
-
+	
+					{
+						"id"		: "0019",
+						"date"		: "January 1, 1970",
+						"atclRef"	: "#",
+						"mobView"	: "",
+						"imgName"	: "atcl-1", 
+						"head"		: "This one is needed for check",
+						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQ",
+						"relatedAtclsId": []		
+					},
+					{
+						"id"		: "0018",
+						"date"		: "January 1, 1970",
+						"atclRef"	: "#",
+						"mobView"	: "",
+						"imgName"	: "atcl-1", 
+						"head"		: "This one is needed for check as well",
+						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQ",
+						"relatedAtclsId": []		
+					},
 					{
 						"id"		: "0017",
+						"date"		: "June 15, 2017",
 						"atclRef"	: "gps-vehicle.html",
 						"mobView"	: "",
 						"imgName"	: "gps-vehicle", 
 						"head"		: "How To Build Your Own GPS Vehicle Tracking System",
-						"txt"		: "Today global market starts to experience a real GPS yechnology boom. The use of satellites for navigation becomes more and more popular among car owners, and those who have big automobile busineses. What are the features of this technology? What benefits it can propose to the transportation industry?"		
+						"txt"		: "Today global market starts to experience a real GPS yechnology boom. The use of satellites for navigation becomes more and more popular among car owners, and those who have big automobile busineses. What are the features of this technology? What benefits it can propose to the transportation industry?",
+						"relatedAtclsId": ["0013", "0015", "0018", "0019"]		
 					},	
 					{
 						"id"		: "0016",
-						"atclRef"	: "javascript:void(0);",
+						"date"		: "January 1, 1970",
+						"atclRef"	: "#",
 						"mobView"	: "",
 						"imgName"	: "atcl-1", 
 						"head"		: "How to Develop Applications for the Internet of Things",
-						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQ "		
+						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQ",
+						"relatedAtclsId": []		
 					},
 					{
 						"id"		: "0015",
-						"atclRef"	: "javascript:void(0);",
+						"date"		: "January 1, 1970",
+						"atclRef"	: "#",
 						"mobView"	: "attn-mobile",
 						"imgName"	: "atcl-2", 
 						"head"		: "Banking and Finanace Software Development",
-						"txt"		: "Today, many financial institutions are thinking about introducing a different software to treir businesses, because it can eliminate execessive bureaucratic hurdles in the bank infrastructure. Many business processes can be automated QQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"		
+						"txt"		: "Today, many financial institutions are thinking about introducing a different software to treir businesses, because it can eliminate execessive bureaucratic hurdles in the bank infrastructure. Many business processes can be automated QQQQQQQQQQQQQQQQQQQQQQQQQQQQQ",
+						"relatedAtclsId": []		
 					},
 					{
 						"id"		: "0014",
-						"atclRef"	: "javascript:void(0);",
+						"date"		: "January 1, 1970",
+						"atclRef"	: "#",
 						"mobView"	: "",
 						"imgName"	: "atcl-3", 
 						"head"		: "5 Myths about Embedded Systems Development",
-						"txt"		: "This system works as follows: user (sometimes it is not a driver) places special GPS-receiver in a vehicle. This receiver connect with a common mobile phone. After installation of both devices all the neccessary information about car QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"		
+						"txt"		: "This system works as follows: user (sometimes it is not a driver) places special GPS-receiver in a vehicle. This receiver connect with a common mobile phone. After installation of both devices all the neccessary information about car QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ",
+						"relatedAtclsId": []		
 					},
 					{
 						"id"		: "0013",
+						"date"		: "January 1, 1970",
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "attn-mobile",
 						"imgName"	: "atcl-4", 
-						"head"		: "Hospital Mobile App Development for Patient",
-						"txt"		: "There were a lot of attempts to integrate modern technologies into the heaith care system. And today when these technologies are at their peak for us it became obvious that traditional medicine industry has a lot of remnants of QQQQQQQQQqqQQQq"		
+						"head"		: "5 Myths about Embedded Systems Development",
+						"txt"		: "There were a lot of attempts to integrate modern technologies into the heaith care system. And today when these technologies are at their peak for us it became obvious that traditional medicine industry has a lot of remnants of QQQQQQQQQqqQQQq",
+						"relatedAtclsId": []		
 					},
 					{
 						"id"		: "0012",
+						"date"		: "January 1, 1970",
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "",
 						"imgName"	: "atcl-5", 
 						"head"		: "Smart Home App Development",
-						"txt"		: "The concept of a \"smart home\" has radically changed our views on the way of the living in a modern house. This technology combines in a single whole digital video surveillance system, alarm system, access control systems, climate qqqqqqqqqqqq"		
+						"txt"		: "The concept of a \"smart home\" has radically changed our views on the way of the living in a modern house. This technology combines in a single whole digital video surveillance system, alarm system, access control systems, climate qqqqqqqqqqqq",
+						"relatedAtclsId": []		
 					},
 					{
 						"id"		: "0011",
+						"date"		: "January 1, 1970",
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "",
 						"imgName"	: "atcl-6", 
 						"head"		: "What You Need to Know about HMI Development?",
-						"txt"		: "The term \"Human Machine Interface\" implices all range of control panels that are used almost everywhere - from simple record players to a plane cabins. Human machine interface systems exercise control over processes, monitor QQQQQQQQQQqq"		
+						"txt"		: "The term \"Human Machine Interface\" implices all range of control panels that are used almost everywhere - from simple record players to a plane cabins. Human machine interface systems exercise control over processes, monitor QQQQQQQQQQqq",
+						"relatedAtclsId": []		
 					},					
 					{
 						"id"		: "0010",
+						"date"		: "January 1, 1970",
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "",
 						"imgName"	: "atcl-7", 
 						"head"		: "How to Build The Best Hospital Management Software",
-						"txt"		: "The best hospital management software is a set of services which help to create th unified work system of all medical departments - from therapeutic..."		
+						"txt"		: "The best hospital management software is a set of services which help to create th unified work system of all medical departments - from therapeutic...",
+						"relatedAtclsId": []		
 					},	
 					{
 						"id"		: "0009",
+						"date"		: "January 1, 1970",
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "",
 						"imgName"	: "atcl-1", 
 						"head"		: "Article 9",
-						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzzz"		
+						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzzz",
+						"relatedAtclsId": []		
 					},
 					{
 						"id"		: "0008",
+						"date"		: "January 1, 1970",
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "attn-mobile",
 						"imgName"	: "atcl-2", 
 						"head"		: "Article 8",
-						"txt"		: "Today, many financial institutions are thinking about introducing a different software to treir businesses, because it can eliminate execessive bureaucratic hurdles in the bank infrastructure. Many business processes can be automated QQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"		
+						"txt"		: "Today, many financial institutions are thinking about introducing a different software to treir businesses, because it can eliminate execessive bureaucratic hurdles in the bank infrastructure. Many business processes can be automated QQQQQQQQQQQQQQQQQQQQQQQQQQQQQ",
+						"relatedAtclsId": []		
 					},	
 					{
 						"id"		: "0007",
+						"date"		: "January 1, 1970",
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "",
 						"imgName"	: "atcl-3", 
 						"head"		: "Article 7",
-						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzz"		
+						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzz",
+						"relatedAtclsId": []		
 					},
 					{
 						"id"		: "0006",
+						"date"		: "January 1, 1970",
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "",
 						"imgName"	: "atcl-4", 
 						"head"		: "Article 6",
-						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzzz"		
+						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzzz",
+						"relatedAtclsId": []		
 					},
 					{
 						"id"		: "0005",
+						"date"		: "January 1, 1970",
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "",
 						"imgName"	: "atcl-5", 
 						"head"		: "Article 5",
-						"txt"		: "Today, many financial institutions are thinking about introducing a different software to treir businesses, because it can eliminate execessive bureaucratic hurdles in the bank infrastructure. Many business processes can be automated QQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"		
+						"txt"		: "Today, many financial institutions are thinking about introducing a different software to treir businesses, because it can eliminate execessive bureaucratic hurdles in the bank infrastructure. Many business processes can be automated QQQQQQQQQQQQQQQQQQQQQQQQQQQQQ",
+						"relatedAtclsId": []		
 					},
 					{
 						"id"		: "0004",
+						"date"		: "January 1, 1970",
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "",
 						"imgName"	: "atcl-6", 
 						"head"		: "Article 4",
-						"txt"		: "Today, many financial institutions are thinking about introducing a different software to treir businesses, because it can eliminate execessive bureaucratic hurdles in the bank infrastructure. Many business processes can be automated QQQQQQQQQQQQQQQQQQQQQQQQQQQQQ"		
+						"txt"		: "Today, many financial institutions are thinking about introducing a different software to treir businesses, because it can eliminate execessive bureaucratic hurdles in the bank infrastructure. Many business processes can be automated QQQQQQQQQQQQQQQQQQQQQQQQQQQQQ",
+						"relatedAtclsId": []
 					},
 					{
 						"id"		: "0003",
+						"date"		: "January 1, 1970",
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "",
 						"imgName"	: "atcl-7", 
 						"head"		: "Article 3",
-						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzz"		
+						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzz",
+						"relatedAtclsId": []		
 					},
 					{
 						"id"		: "0002",
+						"date"		: "January 1, 1970",
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "attn-mobile",
 						"imgName"	: "atcl-1", 
 						"head"		: "Article 2",
-						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzzz"		
+						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzzz",
+						"relatedAtclsId": []		
 					},	
 					{
 						"id"		: "0001",
+						"date"		: "January 1, 1970",
 						"atclRef"	: "javascript:void(0);l",
 						"mobView"	: "",
 						"imgName"	: "atcl-2", 
 						"head"		: "Article 1",
-						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzz"		
+						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzz",
+						"relatedAtclsId": []		
 					}				
 				]
 }
