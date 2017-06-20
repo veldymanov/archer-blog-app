@@ -551,16 +551,16 @@ a.email {
     .cmnts-form .verification figure {
       background-color: #EEE;
       border: 1px solid #CCC;
+      height: 50px;
       flex-basis: 30%;
       flex-grow: 1;
       padding: 0; }
       .cmnts-form .verification figure img {
-        height: 50px;
+        height: 100%;
         position: relative;
         width: auto;
         left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%); }
+        transform: translateX(-50%); }
     .cmnts-form .verification div {
       background: url(../images/article-icon-reload.png) no-repeat;
       background-size: contain;

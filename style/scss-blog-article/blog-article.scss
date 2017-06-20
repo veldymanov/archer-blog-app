@@ -750,16 +750,16 @@ a.email {
 		figure {				//flex-item
 			background-color: #EEE;
 			border: 1px solid #CCC;
+			height: 50px;
 			flex-basis: 30%;
 			flex-grow: 1;
 			padding: 0;
 			img {
-				height: 50px;
+				height: 100%;
 				position: relative;
 				width: auto;
 				left: 50%;
-				top: 50%;
-				transform: translate(-50%, -50%);
+				transform: translateX(-50%);
 			}
 		}
 		
