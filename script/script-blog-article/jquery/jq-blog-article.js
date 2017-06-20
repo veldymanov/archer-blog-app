@@ -477,7 +477,7 @@ var articlesLoader = {
 		var currentArticleIndex;
 		var pathArray = window.location.pathname.split( '/' );
 		for( var i = 0; i < l; i++){ 
-			if (resp["articles"][i].atclRef === pathArray[1]){
+			if (resp["articles"][i].atclRef === pathArray[pathArray.length - 1]){
 				currentArticleIndex = i;
 				break
 			}
