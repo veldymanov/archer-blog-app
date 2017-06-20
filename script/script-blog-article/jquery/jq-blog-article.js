@@ -458,7 +458,7 @@ var articlesLoader = {
 									 + resp["articles"][i].head + "</a>");
 			
 			//Mark current article			
-			if (resp["articles"][i].atclRef === pathArray[1]){		
+			if (resp["articles"][i].atclRef === pathArray[pathArray.length - 1]){		
 				a.css("color", "#CCC");
 				
 				//Move touch to current article
