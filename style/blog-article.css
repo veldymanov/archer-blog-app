@@ -310,7 +310,8 @@ a.email {
   margin: 0;
   padding: 0; }
   .cap-social .cap-social-item {
-    flex-basis: 23%; }
+    flex-basis: 23%;
+    flex-shrink: 0; }
 
 .cap-social-item {
   background: #e6e6e6;
@@ -319,7 +320,8 @@ a.email {
     padding-bottom: 5px; }
   @media (max-width: 1000px) {
     .cap-social-item {
-      padding: 1% 0; } }
+      margin-right: 1%;
+      padding: 0; } }
   @media (max-width: 800px) {
     .cap-social-item {
       padding: 0; } }
@@ -354,6 +356,7 @@ a.email {
 .cap-cmnt {
   align-items: center;
   display: flex;
+  font-size: 0.85em;
   justify-content: flex-end; }
   .cap-cmnt .cap-cmnt-photo {
     flex-basis: 30px;
