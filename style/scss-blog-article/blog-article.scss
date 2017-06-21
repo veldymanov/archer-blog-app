@@ -411,7 +411,12 @@ a.email {
 .cap-social-item {
 	background: darken($lightTextColor, 10%);
 	margin: 2% 1%;
-	
+	.fcbk {
+		
+		left: 50%;
+		position: relative;
+		transform: translateX(-50%);
+	}	
 	
 	@include respond-to(max-width, 1000px) {
 		margin: 1% 1%;
@@ -431,11 +436,7 @@ a.email {
 		background-position: center;
 		background-size: 70%;		
 	}
-	&.fcbk {
-	//	background: url(../images/icon-facebook-like.png) no-repeat;
-	//	background-position: center;
-	//	background-size: 70%;		
-	}
+
 	&.lnkdn {
 		background: url(../images/icon-linkedin-share.png) no-repeat;
 		background-position: center;

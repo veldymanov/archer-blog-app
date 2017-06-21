@@ -315,6 +315,10 @@ a.email {
 .cap-social-item {
   background: #e6e6e6;
   margin: 2% 1%; }
+  .cap-social-item .fcbk {
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%); }
   @media (max-width: 1000px) {
     .cap-social-item {
       margin: 1% 1%; } }
