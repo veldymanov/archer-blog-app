@@ -314,14 +314,12 @@ a.email {
 
 .cap-social-item {
   background: #e6e6e6;
-  margin: 2% 1%; }
+  padding: 1%; }
   .cap-social-item .fcbk {
-    left: 50%;
-    position: relative;
-    transform: translateX(-50%); }
+    padding-bottom: 5px; }
   @media (max-width: 1000px) {
     .cap-social-item {
-      margin: 1% 1%; } }
+      padding: 1% 0; } }
   @media (max-width: 800px) {
     .cap-social-item {
       padding: 0; } }

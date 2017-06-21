@@ -410,15 +410,13 @@ a.email {
 
 .cap-social-item {
 	background: darken($lightTextColor, 10%);
-	margin: 2% 1%;
+	padding: 1%;
 	.fcbk { 
-		left: 50%;
-		position: relative;
-		transform: translateX(-50%);
+		padding-bottom: 5px;
 	}	
 	
 	@include respond-to(max-width, 1000px) {
-		margin: 1% 1%;
+		padding: 1% 0;
 	}		
 	@include respond-to(max-width, 800px) {
 		padding: 0;
