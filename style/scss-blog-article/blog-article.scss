@@ -411,7 +411,7 @@ a.email {
 
 .cap-social-item {
 	background: darken($lightTextColor, 10%);
-	padding: 1%;
+	padding: 0;
 	.fcbk { 
 		padding-bottom: 5px;
 	}	
@@ -428,6 +428,7 @@ a.email {
 .cap-social-item-link {
 	display: block;
 	height: 100%;
+	padding-top: 10px;
 	text-indent: -9999px;
 	width: 100%;
 	&.twit {
@@ -448,9 +449,6 @@ a.email {
 	
 	@include respond-to(max-width, 800px) {
 		&.twit {
-			background-size: 90%;		
-		}
-		&.fcbk {
 			background-size: 90%;		
 		}
 		&.lnkdn {

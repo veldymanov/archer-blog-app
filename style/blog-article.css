@@ -315,7 +315,7 @@ a.email {
 
 .cap-social-item {
   background: #e6e6e6;
-  padding: 1%; }
+  padding: 0; }
   .cap-social-item .fcbk {
     padding-bottom: 5px; }
   @media (max-width: 1000px) {
@@ -329,6 +329,7 @@ a.email {
 .cap-social-item-link {
   display: block;
   height: 100%;
+  padding-top: 10px;
   text-indent: -9999px;
   width: 100%; }
   .cap-social-item-link.twit {
@@ -345,8 +346,6 @@ a.email {
     background-size: 70%; }
   @media (max-width: 800px) {
     .cap-social-item-link.twit {
-      background-size: 90%; }
-    .cap-social-item-link.fcbk {
       background-size: 90%; }
     .cap-social-item-link.lnkdn {
       background-size: 90%; }
