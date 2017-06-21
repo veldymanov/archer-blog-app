@@ -410,10 +410,11 @@ a.email {
 
 .cap-social-item {
 	background: darken($lightTextColor, 10%);
-	padding: 2% 0;
+	margin: 2% 1%;
+	
 	
 	@include respond-to(max-width, 1000px) {
-		padding: 1% 0;
+		margin: 1% 1%;
 	}		
 	@include respond-to(max-width, 800px) {
 		padding: 0;

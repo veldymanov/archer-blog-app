@@ -314,10 +314,10 @@ a.email {
 
 .cap-social-item {
   background: #e6e6e6;
-  padding: 2% 0; }
+  margin: 2% 1%; }
   @media (max-width: 1000px) {
     .cap-social-item {
-      padding: 1% 0; } }
+      margin: 1% 1%; } }
   @media (max-width: 800px) {
     .cap-social-item {
       padding: 0; } }
