@@ -28,35 +28,22 @@
 /*
 		window.fbAsyncInit = function() {
 			FB.init({
-				appId      : '1497444210312645',
-				xfbml      : true,
-				version    : 'v2.9'
-				});
-			FB.AppEvents.logPageView();
-		};
-*/		
+			appId      : '1497444210312645',
+			xfbml      : true,
+			version    : 'v2.9'
+		});
+		FB.AppEvents.logPageView();
+	};
+*/
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=1497444210312645";
+		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
 </script>
-
-<div id="fb-root"></div>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '1497444210312645',
-      xfbml      : true,
-      version    : 'v2.9'
-    });
-    FB.AppEvents.logPageView();
-  };
-
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=1497444210312645";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
 		
-
   
 	<header class="head">
 		<div class="head-top">
@@ -124,16 +111,16 @@
 							</li>
 							
 							<li class="cap-social-item">
-								
-								<!--div class="fb-like fcbk" 
-									data-href="https://veldymanov.github.io/archer-blog-app/gps-vehicle.html" data-layout="box_count" 
+
+								<!-- Your FB like/share button code -->
+								<div class="fb-like fcbk" 
+									data-href="https://veldymanov.github.io/archer-blog-app/gps-vehicle.html"
+									data-layout="box_count" 
 									data-action="like" 
 									data-size="small" 
 									data-show-faces="false" 
 									data-share="true">
-								</div-->
-  <!-- Your share button code -->
-<div class="fb-like" data-href="https://veldymanov.github.io/archer-blog-app/gps-vehicle.html" data-layout="box_count" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+								</div>
 								
 							</li>
 							
