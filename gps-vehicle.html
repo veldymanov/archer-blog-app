@@ -11,6 +11,27 @@
   </head>
   
   <body>
+  
+	<script>
+		window.fbAsyncInit = function() {
+			FB.init({
+			appId      : '1497444210312645',
+			xfbml      : true,
+			version    : 'v2.9'
+			});
+			FB.AppEvents.logPageView();
+		};
+
+		(function(d, s, id){
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {return;}
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+  
+  
 	<header class="head">
 		<div class="head-top">
 			<div class="logo">
@@ -76,7 +97,12 @@
 								<a class="cap-social-item-link twit" href="#">Twitter</a>	
 							</li>
 							<li class="cap-social-item">
-								<a class="cap-social-item-link fcbk" href="#">Facebook</a>
+								<div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
 							</li>
 							<li class="cap-social-item">
 								<a class="cap-social-item-link lnkdn" href="#">Linkedin</a>
@@ -372,16 +398,20 @@
 				<div class="social">
 					<ul class="social-media">
 						<li class="social-media-item skype">
-							<a href="javascript:void(0);">Skype</a>
+							<a href="callto:archer.software" target="_blank">
+								Skype</a>
 						</li>
 						<li class="social-media-item facebook">
-							<a href="javascript:void(0);">Facebook</a>
+							<a href="https://www.facebook.com/archersoft/" target="_blank">
+								Facebook</a>
 						</li>
-						<li class="social-media-item linkedin">
-							<a href="javascript:void(0);">Linkedin</a>
+						<li class="social-media-item linkedin" target="_blank">
+							<a href="http://www.linkedin.com/company/58084?trk=NUS_CMPY_FOL-pdctd">
+								Linkedin</a>
 						</li>
-						<li class="social-media-item twitter">
-							<a href="javascript:void(0);">twitter</a>
+						<li class="social-media-item twitter" target="_blank">
+							<a href="https://twitter.com/ArcherSoftware">
+								Twitter</a>
 						</li>
 					</ul>
 				</div>				
