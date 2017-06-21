@@ -317,7 +317,7 @@ a.email {
   background: #e6e6e6;
   padding: 0; }
   .cap-social-item .fcbk {
-    padding-bottom: 5px; }
+    padding-top: 2px; }
   @media (max-width: 1000px) {
     .cap-social-item {
       margin-right: 1%;

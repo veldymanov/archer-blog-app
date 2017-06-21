@@ -413,7 +413,7 @@ a.email {
 	background: darken($lightTextColor, 10%);
 	padding: 0;
 	.fcbk { 
-		padding-bottom: 5px;
+		padding-top: 2px;
 	}	
 	
 	@include respond-to(max-width, 1000px) {
