@@ -411,6 +411,9 @@ a.email {
 .cap-social-item {
 	background: darken($lightTextColor, 10%);
 	padding: 0;
+	.tweet {
+		padding: 8px 3px 0px 3px;
+	}
 	.fcbk { 
 		padding: 2px 3px 0px 3px;
 		width: 100%;
@@ -424,7 +427,6 @@ a.email {
 	
 	@include respond-to(max-width, 1000px) {
 		margin-right: 1%;
-		padding: 0;
 	}		
 }
 
@@ -434,32 +436,18 @@ a.email {
 	padding-top: 10px;
 	text-indent: -9999px;
 	width: 100px;
-	&.twit {
-		background: url(../images/icon-twitter-tweet.png) no-repeat;
-		background-position: center;
-		background-size: 70%;		
-	}
+
 	&.lnkdn {
 		background: url(../images/icon-linkedin-share.png) no-repeat;
 		background-position: center;
 		background-size: 70%;		
 	} 
-	&.gplus {
-		background: url(../images/icon-gplus-share.png	) no-repeat;
-		background-position: center;
-		background-size: 70%;		
-	}
 	
 	@include respond-to(max-width, 800px) {
-		&.twit {
-			background-size: 90%;		
-		}
+
 		&.lnkdn {
 			background-size: 90%;		
-		} 
-		&.gplus {
-			background-size: 90%;		
-		}		
+		} 		
 	}		
 }
 

@@ -16,6 +16,7 @@
 				"https://veldymanov.github.io/archer-blog-app/images/articles-imgs/gps-vehicle.hd.jpg" /> 
 	
 	<title>GPS Vehicle Tracking System</title> 
+	
 	<link rel="shortcut icon" href="images/as-logo-small.png" type="image/x-icon">
 	<link rel="stylesheet" href="style/normalize-min.css" />
 	<link rel="stylesheet" href="style/blog-article.css"  type='text/css'/>
@@ -85,7 +86,15 @@
 					<figcaption class="cap">
 						<ul class="cap-social">
 							<li class="cap-social-item">
-								<a class="cap-social-item-link twit" href="#">Twitter</a>	
+								<div class="tweet">
+								
+									<!--Twitter Plugin Tweet Button-->
+									<a class="twitter-share-button"  
+										href="https://twitter.com/share									
+										data-text="How To Build Your Own GPS Vehicle Tracking System">
+										Tweet</a>
+										
+								</div>
 							</li>
 							
 							<li class="cap-social-item">
@@ -111,8 +120,7 @@
 							<li class="cap-social-item">
 								<div class="gplus">
 							
-									<!-- Place this tag where you want the share button to render.
-										 Google+ Plugin Share Button	-->
+									<!--Google+ Plugin Share Button-->
 									<div class="g-plusone" 
 										 data-size="medium"
 										 data-align="left"
@@ -447,9 +455,28 @@
 			}(document, 'script', 'facebook-jssdk'));
 	</script>
 
-	<!-- Place this tag in your head or just before your close body tag. 
-		Google+ Plugin														-->
-	<script src="https://apis.google.com/js/platform.js" async defer></script>	
+	<!-- Google+ Share Button Plugin	-->
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+
+	<!-- Twitter Share Button Plugin	-->
+	<script>
+		window.twttr = (function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0],
+			t = window.twttr || {};
+			if (d.getElementById(id)) return t;
+			js = d.createElement(s);
+			js.id = id;
+			js.src = "https://platform.twitter.com/widgets.js";
+			fjs.parentNode.insertBefore(js, fjs);
+
+			t._e = [];
+			t.ready = function(f) {
+				t._e.push(f);
+			};
+
+			return t;
+		}(document, "script", "twitter-wjs"));
+	</script>	
   
 	<script src='script/script-blog-article/jquery/jquery-3.2.1.min.js'></script>
 	<script async src='script/script-blog-article/jquery/jq-blog-article.js'></script>
