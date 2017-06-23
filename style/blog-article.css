@@ -310,20 +310,21 @@ a.email {
   margin: 0;
   padding: 0; }
   .cap-social .cap-social-item {
-    flex-basis: 23%;
     flex-shrink: 0; }
 
 .cap-social-item {
   background: #e6e6e6;
   padding: 0; }
   .cap-social-item .fcbk {
-    padding-top: 2px; }
+    padding: 2px 3px 0px 3px;
+    width: 100%; }
+  .cap-social-item .gplus {
+    padding: 8px 3px 0px 3px;
+    overflow: hidden;
+    width: 75px; }
   @media (max-width: 1000px) {
     .cap-social-item {
       margin-right: 1%;
-      padding: 0; } }
-  @media (max-width: 800px) {
-    .cap-social-item {
       padding: 0; } }
 
 .cap-social-item-link {
@@ -331,7 +332,7 @@ a.email {
   height: 100%;
   padding-top: 10px;
   text-indent: -9999px;
-  width: 100%; }
+  width: 100px; }
   .cap-social-item-link.twit {
     background: url(../images/icon-twitter-tweet.png) no-repeat;
     background-position: center;

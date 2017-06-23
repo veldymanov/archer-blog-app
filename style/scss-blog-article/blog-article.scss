@@ -404,7 +404,6 @@ a.email {
 	margin: 0;
 	padding: 0;
 	.cap-social-item {			//flex-item
-		flex-basis: 23%;
 		flex-shrink: 0;
 	}
 }
@@ -413,16 +412,20 @@ a.email {
 	background: darken($lightTextColor, 10%);
 	padding: 0;
 	.fcbk { 
-		padding-top: 2px;
+		padding: 2px 3px 0px 3px;
+		width: 100%;
+	}
+	.gplus {
+		padding: 8px 3px 0px 3px;
+		overflow: hidden;
+		width: 75px;
 	}	
+	
 	
 	@include respond-to(max-width, 1000px) {
 		margin-right: 1%;
 		padding: 0;
 	}		
-	@include respond-to(max-width, 800px) {
-		padding: 0;
-	}	
 }
 
 .cap-social-item-link {
@@ -430,7 +433,7 @@ a.email {
 	height: 100%;
 	padding-top: 10px;
 	text-indent: -9999px;
-	width: 100%;
+	width: 100px;
 	&.twit {
 		background: url(../images/icon-twitter-tweet.png) no-repeat;
 		background-position: center;
