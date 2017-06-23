@@ -386,13 +386,26 @@ a.email {
 	display: flex;
 	justify-content: space-between;
 	.cap-social {								//flex-item
-		flex-basis: 60%;
+		flex-basis: 50%;
 	}
 	.cap-cmnt {									//flex-item
 		flex-basis: 40%;
 	}
-
+	
+	@include respond-to(max-width, 875px) {
+		.cap-social {								
+			flex-basis: 70%;
+		}
+		.cap-cmnt {	
+			display: none;
+		}
+	}	
 	@include respond-to(max-width, 640px) {
+		.cap-social {								
+			flex-basis: 100%;
+		}
+	}	
+	@include respond-to(max-width, 420px) {
 		display: none;
 	}	
 }
@@ -404,22 +417,25 @@ a.email {
 	margin: 0;
 	padding: 0;
 	.cap-social-item {			//flex-item
+		flex-grow: 1;
 		flex-shrink: 0;
 	}
 }
 
 .cap-social-item {
 	background: darken($lightTextColor, 10%);
-	padding: 0;
-	.tweet {
-		padding: 8px 3px 0px 3px;
+	margin-right: 0.5%;
+	&.tweet {
+		padding: 8px 2% 0px 3.5%;
 	}
-	.fcbk { 
-		padding: 2px 3px 0px 3px;
-		width: 100%;
+	&.fcbk { 
+		padding: 2px 2% 0px 3%;
 	}
-	.gplus {
-		padding: 8px 3px 0px 3px;
+	&.lnkdn {
+		padding: 8px 2% 0px 3.5%;
+	}
+	&.gplus {
+		padding: 8px 1.5% 0px 2.5%;
 		overflow: hidden;
 		width: 75px;
 	}	
@@ -430,26 +446,6 @@ a.email {
 	}		
 }
 
-.cap-social-item-link {
-	display: block;
-	height: 100%;
-	padding-top: 10px;
-	text-indent: -9999px;
-	width: 100px;
-
-	&.lnkdn {
-		background: url(../images/icon-linkedin-share.png) no-repeat;
-		background-position: center;
-		background-size: 70%;		
-	} 
-	
-	@include respond-to(max-width, 800px) {
-
-		&.lnkdn {
-			background-size: 90%;		
-		} 		
-	}		
-}
 
 .cap-cmnt {						//flex-container
 	align-items: center;

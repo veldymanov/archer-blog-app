@@ -85,49 +85,50 @@
 					
 					<figcaption class="cap">
 						<ul class="cap-social">
-							<li class="cap-social-item">
-								<div class="tweet">
+							<li class="cap-social-item tweet">
 								
-									<!--Twitter Plugin Tweet Button-->
-									<a class="twitter-share-button"  
-										href="https://twitter.com/share									
-										data-text="How To Build Your Own GPS Vehicle Tracking System">
-										Tweet</a>
+								<!--Twitter Plugin Tweet Button-->
+								<a class="twitter-share-button"  
+									href="https://twitter.com/share									
+									data-text="How To Build Your Own GPS Vehicle Tracking System">
+									Tweet</a>
+
+							</li>
+							
+							<li class="cap-social-item fcbk">
+
+								<!-- FB Plugin Like/Share Button -->
+								<div class="fb-like" 
+									data-href="https://veldymanov.github.io/archer-blog-app/gps-vehicle.html"
+									data-layout="button_count" 
+									data-action="like" 
+									data-size="small" 
+									data-show-faces="false" 
+									data-share="true">
+								</div>
+
+							</li>
+							
+							<li class="cap-social-item lnkdn">
+							
+								<script src="//platform.linkedin.com/in.js" 
+										type="text/javascript"> lang: en_US
+								</script>
+								<script type="IN/Share" 
+										data-url="https://veldymanov.github.io/archer-blog-app/gps-vehicle.html">
+								</script>
 										
+							</li>
+							
+							<li class="cap-social-item gplus">
+							
+								<!--Google+ Plugin Share Button-->
+								<div class="g-plusone" 
+									 data-size="medium"
+									 data-align="left"
+									 data-href="https://veldymanov.github.io/archer-blog-app/gps-vehicle.html">
 								</div>
-							</li>
-							
-							<li class="cap-social-item">
-								<div class="fcbk">
-								
-									<!-- FB Plugin Like/Share Button -->
-									<div class="fb-like" 
-										data-href="https://veldymanov.github.io/archer-blog-app/gps-vehicle.html"
-										data-layout="button_count" 
-										data-action="like" 
-										data-size="small" 
-										data-show-faces="false" 
-										data-share="true">
-									</div>
-	
-								</div>
-							</li>
-							
-							<li class="cap-social-item">
-								<a class="cap-social-item-link lnkdn" href="#">Linkedin</a>
-							</li>
-							
-							<li class="cap-social-item">
-								<div class="gplus">
-							
-									<!--Google+ Plugin Share Button-->
-									<div class="g-plusone" 
-										 data-size="medium"
-										 data-align="left"
-										 data-href="https://veldymanov.github.io/archer-blog-app/gps-vehicle.html">
-									</div>
 																		
-								</div>
 							</li>
 						</ul>
 						
@@ -442,22 +443,6 @@
 		</ul>	
 	</footer>
   
-  
-	<!-- Load Facebook SDK for JavaScript -->
-	<div id="fb-root"></div>
-	<script>
-		(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
-			js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=250619062089972";
-			fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-	</script>
-
-	<!-- Google+ Share Button Plugin	-->
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
-
 	<!-- Twitter Share Button Plugin	-->
 	<script>
 		window.twttr = (function(d, s, id) {
@@ -478,10 +463,23 @@
 		}(document, "script", "twitter-wjs"));
 	</script>	
   
+	<!-- Load Facebook SDK for JavaScript -->
+	<div id="fb-root"></div>
+	<script>
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=250619062089972";
+			fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+	</script>
+		
+	<!-- Google+ Share Button Plugin	-->
+	<script src="https://apis.google.com/js/platform.js" async defer></script>
+
 	<script src='script/script-blog-article/jquery/jquery-3.2.1.min.js'></script>
 	<script async src='script/script-blog-article/jquery/jq-blog-article.js'></script>
 	
-
-
 	</body>
 </html>

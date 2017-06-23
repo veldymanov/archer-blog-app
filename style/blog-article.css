@@ -296,10 +296,18 @@ a.email {
   display: flex;
   justify-content: space-between; }
   .cap .cap-social {
-    flex-basis: 60%; }
+    flex-basis: 50%; }
   .cap .cap-cmnt {
     flex-basis: 40%; }
+  @media (max-width: 875px) {
+    .cap .cap-social {
+      flex-basis: 70%; }
+    .cap .cap-cmnt {
+      display: none; } }
   @media (max-width: 640px) {
+    .cap .cap-social {
+      flex-basis: 100%; } }
+  @media (max-width: 420px) {
     .cap {
       display: none; } }
 
@@ -310,37 +318,25 @@ a.email {
   margin: 0;
   padding: 0; }
   .cap-social .cap-social-item {
+    flex-grow: 1;
     flex-shrink: 0; }
 
 .cap-social-item {
   background: #e6e6e6;
-  padding: 0; }
-  .cap-social-item .tweet {
-    padding: 8px 3px 0px 3px; }
-  .cap-social-item .fcbk {
-    padding: 2px 3px 0px 3px;
-    width: 100%; }
-  .cap-social-item .gplus {
-    padding: 8px 3px 0px 3px;
+  margin-right: 0.5%; }
+  .cap-social-item.tweet {
+    padding: 8px 2% 0px 3.5%; }
+  .cap-social-item.fcbk {
+    padding: 2px 2% 0px 3%; }
+  .cap-social-item.lnkdn {
+    padding: 8px 2% 0px 3.5%; }
+  .cap-social-item.gplus {
+    padding: 8px 1.5% 0px 2.5%;
     overflow: hidden;
     width: 75px; }
   @media (max-width: 1000px) {
     .cap-social-item {
       margin-right: 1%; } }
-
-.cap-social-item-link {
-  display: block;
-  height: 100%;
-  padding-top: 10px;
-  text-indent: -9999px;
-  width: 100px; }
-  .cap-social-item-link.lnkdn {
-    background: url(../images/icon-linkedin-share.png) no-repeat;
-    background-position: center;
-    background-size: 70%; }
-  @media (max-width: 800px) {
-    .cap-social-item-link.lnkdn {
-      background-size: 90%; } }
 
 .cap-cmnt {
   align-items: center;
