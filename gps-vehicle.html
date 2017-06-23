@@ -22,20 +22,7 @@
   </head>
   
   <body>
-  
-	<!-- Load Facebook SDK for JavaScript -->
-	<div id="fb-root"></div>
-	<script>
-	(function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) return;
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=250619062089972";
-		fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-	</script>
-		
-  
+    
 	<header class="head">
 		<div class="head-top">
 			<div class="logo">
@@ -447,17 +434,27 @@
 		</ul>	
 	</footer>
   
+  
+	<!-- Load Facebook SDK for JavaScript -->
+	<div id="fb-root"></div>
+	<script>
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=250619062089972";
+			fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+	</script>
+
+	<!-- Place this tag in your head or just before your close body tag. 
+		Google+ Plugin														-->
+	<script src="https://apis.google.com/js/platform.js" async defer></script>	
+  
 	<script src='script/script-blog-article/jquery/jquery-3.2.1.min.js'></script>
 	<script async src='script/script-blog-article/jquery/jq-blog-article.js'></script>
 	
-	<!-- Place this tag in your head or just before your close body tag. 
-		Google+ Plugin														-->
-	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	
 
 
-
-
-	
 	</body>
 </html>
