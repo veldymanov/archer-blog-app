@@ -95,7 +95,7 @@ var mobileMenuTouchSlider = {
 			elem.animate({right: -this.width + 'px'}, 300, function(){
 					$(this).hide();
 				});	
-			$('body').css('overflow','auto'); //Scroll Propagation
+			$('#js-body').css('overflow','auto'); //Scroll Propagation
 		}
 			 		 
 		this.startX = null;
@@ -521,7 +521,7 @@ jQuery(document).ready(function(){
 	function menuSlideIn(event){
 		event.preventDefault();		
 		$('.js-head-nav').show().animate({right: "0px"}, 700);
-		$('body').css('overflow','hidden'); //Stop Scroll Propagation
+		$('#js-body').css('overflow','hidden'); //Stop Scroll Propagation
 	}
 	
 	//Close menu
@@ -546,7 +546,7 @@ jQuery(document).ready(function(){
 			$('.js-head-nav').animate({right: "-240px"}, 700, function(){
 				$(this).hide();
 			});
-			$('body').css('overflow','auto'); //Scroll Propagation
+			$('#js-body').css('overflow','auto'); //Scroll Propagation
 		}
 	}	
 	
