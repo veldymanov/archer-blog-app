@@ -24,26 +24,6 @@
 	"articles" : [
 	
 					{
-						"id"		: "0019",
-						"date"		: "January 1, 1970",
-						"atclRef"	: "#",
-						"mobView"	: "",
-						"imgName"	: "atcl-1", 
-						"head"		: "This one is needed for check",
-						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQ",
-						"relatedAtclsId": []		
-					},
-					{
-						"id"		: "0018",
-						"date"		: "January 1, 1970",
-						"atclRef"	: "#",
-						"mobView"	: "",
-						"imgName"	: "atcl-1", 
-						"head"		: "This one is needed for check as well",
-						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQ",
-						"relatedAtclsId": []		
-					},
-					{
 						"id"		: "0017",
 						"date"		: "June 15, 2017",
 						"atclRef"	: "gps-vehicle.html",
@@ -56,7 +36,7 @@
 					{
 						"id"		: "0016",
 						"date"		: "January 1, 1970",
-						"atclRef"	: "#",
+						"atclRef"	: "gps-vehicle.html",
 						"mobView"	: "",
 						"imgName"	: "atcl-1", 
 						"head"		: "How to Develop Applications for the Internet of Things",
@@ -66,7 +46,7 @@
 					{
 						"id"		: "0015",
 						"date"		: "January 1, 1970",
-						"atclRef"	: "#",
+						"atclRef"	: "gps-vehicle.html",
 						"mobView"	: "attn-mobile",
 						"imgName"	: "atcl-2", 
 						"head"		: "Banking and Finanace Software Development",
@@ -76,7 +56,7 @@
 					{
 						"id"		: "0014",
 						"date"		: "January 1, 1970",
-						"atclRef"	: "#",
+						"atclRef"	: "gps-vehicle.html",
 						"mobView"	: "",
 						"imgName"	: "atcl-3", 
 						"head"		: "5 Myths about Embedded Systems Development",
@@ -86,7 +66,7 @@
 					{
 						"id"		: "0013",
 						"date"		: "January 1, 1970",
-						"atclRef"	: "javascript:void(0);",
+						"atclRef"	: "gps-vehicle.html",
 						"mobView"	: "attn-mobile",
 						"imgName"	: "atcl-4", 
 						"head"		: "5 Myths about Embedded Systems Development",
@@ -96,7 +76,7 @@
 					{
 						"id"		: "0012",
 						"date"		: "January 1, 1970",
-						"atclRef"	: "javascript:void(0);",
+						"atclRef"	: "gps-vehicle.html",
 						"mobView"	: "",
 						"imgName"	: "atcl-5", 
 						"head"		: "Smart Home App Development",
@@ -106,7 +86,7 @@
 					{
 						"id"		: "0011",
 						"date"		: "January 1, 1970",
-						"atclRef"	: "javascript:void(0);",
+						"atclRef"	: "gps-vehicle.html",
 						"mobView"	: "",
 						"imgName"	: "atcl-6", 
 						"head"		: "What You Need to Know about HMI Development?",

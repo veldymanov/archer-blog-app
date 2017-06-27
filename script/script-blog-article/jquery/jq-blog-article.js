@@ -382,7 +382,8 @@ var otherAtclsTouchSlider = {
 
 
 //------------------------------------------
-//	Interesting Articles Loader (Main)
+//	Interesting Articles, Other Articles, 
+//  and related Posts Loader (Main)
 //------------------------------------------
 var articlesLoader = {
 	
@@ -390,6 +391,7 @@ var articlesLoader = {
 		$.ajax('articles.json', {
 			contextType: 'application/json',
 			dataType: 'json',
+//			context: articlesLoader,			
 			timeout: 3000,
 			success: function(response) {
 				articlesLoader.response = response;
@@ -406,7 +408,7 @@ var articlesLoader = {
 				otherAtclsTouchSlider.createSlidePanel('#js-touch-slider', 240, 125);
 				
 				//Move .other-atcls Touchslider to current article
-				var x = -articlesLoader.currentAtricleIndex * 240;
+				var x = -articlesLoader.currentArticleIndex * 240;
 				otherAtclsTouchSlider.doSlide($('#js-touch-slider'), x, 0);
 			}
 		});			
@@ -441,20 +443,27 @@ var articlesLoader = {
 	createOtherArticles: function() {
 		var resp = articlesLoader.response;
 		var l = resp["articles"].length;
+		
+		/***************************
+		* Find current article index
+		****************************/
 		var pathArray = window.location.pathname.split( '/' );
+		for( var i = 0; i < l; i++){ 
+			if (resp["articles"][i].atclRef === pathArray[pathArray.length - 1]){
+				this.currentArticleIndex = i;
+				break
+			}
+		}
 		
 		for( var i = 0; i < l; i++){
 			var touchSliderItem = $("<li class='touch-slider-item js-touch-slider-item'></li>");
 			var h3 = $("<h3></h3>");
 			var a = $("<a href=" + resp["articles"][i].atclRef + ">" 
 									 + resp["articles"][i].head + "</a>");
-			
+
 			//Mark current article			
-			if (resp["articles"][i].atclRef === pathArray[pathArray.length - 1]){		
+			if ( i === this.currentArticleIndex ){		
 				a.css("color", "#CCC");
-				
-				//Move touch to current article
-				articlesLoader.currentAtricleIndex = i;
 			}
 			
 			$("#js-touch-slider").append(touchSliderItem.append(h3.append(a)));
@@ -463,19 +472,8 @@ var articlesLoader = {
 	
 	createRelatedPosts: function(){
 		var resp = articlesLoader.response;
-		var l = resp["articles"].length;
-						
-		//Find current article index
-		var currentArticleIndex;
-		var pathArray = window.location.pathname.split( '/' );
-		for( var i = 0; i < l; i++){ 
-			if (resp["articles"][i].atclRef === pathArray[pathArray.length - 1]){
-				currentArticleIndex = i;
-				break
-			}
-		}
-		
-		var currentArticle = resp["articles"][currentArticleIndex];
+		var l = resp["articles"].length;		
+		var currentArticle = resp["articles"][this.currentArticleIndex];
 		var relAtclsID = currentArticle.relatedAtclsId;
 		var relAtclsLength = currentArticle.relatedAtclsId.length;
 		
@@ -545,8 +543,8 @@ jQuery(document).ready(function(){
 			
 			event.preventDefault();		
 			$('.js-head-nav').animate({right: "-240px"}, 700, function(){
-						$(this).hide();
-					});
+				$(this).hide();
+			});
 			$('body').css('overflow','auto'); //Scroll Propagation
 		}
 	}	
