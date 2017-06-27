@@ -94,7 +94,8 @@ var mobileMenuTouchSlider = {
 			// Hide panel
 			elem.animate({right: -this.width + 'px'}, 300, function(){
 					$(this).hide();
-				});				
+				});	
+			$('body').css('overflow','auto'); //Scroll Propagation
 		}
 			 		 
 		this.startX = null;
