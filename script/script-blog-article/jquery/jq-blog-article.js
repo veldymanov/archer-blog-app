@@ -1,13 +1,18 @@
 //------------------------------------------
 //	Mobile Menu Touchslider
 //-------------------------------------------
-var mobileMenuTouchSlider = {	
+var mobileMenuTouchSlider = {
+	log: function(msg) {
+//		var p = document.getElementById('log');
+//		p.innerHTML = p.innerHTML + "<br>" + msg;
+	},
+	
 	createSlidePanel: function(/*string*/ panel, /*el width px*/ width) {	
-		mobileMenuTouchSlider.width = width;
+		this.width = width;
 	
 		try {
 			document.createEvent('TouchEvent');
-			mobileMenuTouchSlider.makeTouchable(panel);
+			this.makeTouchable(panel);
 		} catch (e) {
 			//  Then we aren't on a device that supports touch
 		} finally {					
@@ -17,54 +22,49 @@ var mobileMenuTouchSlider = {
 		
 	makeTouchable: function(/*string*/ panel) {
 		$(panel).each(function() {
-			this.ontouchstart = function(e) {
+			this.addEventListener('touchstart', function(e) {
 				mobileMenuTouchSlider.touchStart($(this), e);
-			};
+			}, false);
 				
-			this.ontouchmove = function(e) {
+			this.addEventListener('touchmove', function(e) {
 				mobileMenuTouchSlider.touchMove($(this), e);
+			}, false);		
 				
-				e.preventDefault();
-			};		
-				
-			this.ontouchend = function(e) {		
-				if (mobileMenuTouchSlider.sliding) {
-					mobileMenuTouchSlider.sliding = false;
-					mobileMenuTouchSlider.touchEnd($(this), e);
-				} else {
-					/*
-					   We never slid so we can just return true
-					   and perform the default touch end
-					 */
-					return true;
-				}
-			};	
+			this.addEventListener('touchend', function(e) {		
+				mobileMenuTouchSlider.touchEnd($(this), e);
+			}, false);	
 		});
 	},		
 
 	touchStart: function(/*JQuery*/ elem, /*event*/ e) {	
-		mobileMenuTouchSlider.startX = e.targetTouches[0].clientX;
-		mobileMenuTouchSlider.startY = e.targetTouches[0].clientY;
-		mobileMenuTouchSlider.startRight = mobileMenuTouchSlider.getRight(elem); 
+		this.startX = e.targetTouches[0].clientX;
+		this.startY = e.targetTouches[0].clientY;
+		this.slider = 0; // Starting position	
+		this.startRight = this.getRight(elem); 
+		
+//		this.log("startRight: " + this.startRight);
 	},
 		
-	/*
-		While they are actively dragging horizontally we just need to adjust the
-		position of the panel using the place they started and the
-		amount they've moved.
-	*/
 	touchMove: function(/*JQuery*/ elem, /*event*/ e) { 
-		var deltaX = mobileMenuTouchSlider.startX - e.targetTouches[0].clientX;
-		var deltaY = mobileMenuTouchSlider.startY - e.targetTouches[0].clientY;
+		var deltaX = e.targetTouches[0].clientX - this.startX;
+		var deltaY = e.targetTouches[0].clientY - this.startY;
 			
-		if (Math.abs(deltaY) < Math.abs(deltaX)) {
-			mobileMenuTouchSlider.sliding = true;	
-
-			var right = deltaX + mobileMenuTouchSlider.startRight;
+		if (( (this.slider === 0 ) ) &&
+			( Math.abs(deltaY) > Math.abs(deltaX)) ) {				
+			//Default sliding
+			this.slider = -1; //Default sliding position
+							
+		} else if (this.slider != -1) {	
+			//this sliding
+			e.preventDefault();
+			
+			this.slider = 1; //this sliding position		
+			var right = this.startRight - deltaX;;
+			
 			if (right > 0) {
 				right = 0;
-			} 
-			
+			} 		
+
 			elem.css({
 				right: right + 'px'
 			});	
@@ -76,7 +76,7 @@ var mobileMenuTouchSlider = {
 		hide or show it.  
 	 */
 	touchEnd: function(/*JQuery*/ elem, /*event*/ e) {
-		mobileMenuTouchSlider.doSlide(elem, e);
+		this.doSlide(elem, e);
 	},
 		
 	getRight: function(/*JQuery*/ elem) {
@@ -84,21 +84,21 @@ var mobileMenuTouchSlider = {
 	},
 		
 	doSlide: function(/*jQuery*/ elem, /*event*/ e) {
-		var right = mobileMenuTouchSlider.getRight(elem);		 
+		var right = this.getRight(elem);		 
 			 
-		if ((Math.abs(right)) < ((mobileMenuTouchSlider.width / 2))) {
+		if ((Math.abs(right)) < ((this.width / 2))) {
 			// Show panel
 			elem.animate({right: 0 + 'px'}, 300); 
 				
 		} else {
 			// Hide panel
-			elem.animate({right: -mobileMenuTouchSlider.width + 'px'}, 300, function(){
+			elem.animate({right: -this.width + 'px'}, 300, function(){
 					$(this).hide();
 				});				
 		}
 			 		 
-		mobileMenuTouchSlider.startX = null;
-		mobileMenuTouchSlider.startY = null;
+		this.startX = null;
+		this.startY = null;
 	}
 };
 
@@ -106,6 +106,11 @@ var mobileMenuTouchSlider = {
 //	other-atcls Touchslider
 //-------------------------------------------
 var otherAtclsTouchSlider = {
+	
+	log: function(msg) {
+//		var p = document.getElementById('log');
+//		p.innerHTML = p.innerHTML + "<br>" + msg;
+	},
 	
 	createSlidePanel: function(/*string*/ gridid, /*int*/ cellWidth, /*int*/ cellHeight, /*int*/ padding) {
 		var padding = padding || 0;
@@ -158,34 +163,34 @@ var otherAtclsTouchSlider = {
 				//Resizing Touch Area Size
 				$(window).resize(function(){ otherAtclsTouchSlider.touchAreaSize(gridid) });
 					
-				//Sliding by click
-				$('.js-next').on('click', function(){ otherAtclsTouchSlider.nextClick(gridid)});
+				//Sliding by click			
 				$('.js-prev').on('click', function(){ otherAtclsTouchSlider.prevClick(gridid)});
+				$('.js-next').on('click', function(){ otherAtclsTouchSlider.nextClick(gridid)});
 			}
 		});			
 	},
 			
-	nextClick: function(gridid){ //to left
-		var left = otherAtclsTouchSlider.getLeft($(gridid));
-		var maxDelta = otherAtclsTouchSlider.width - parseInt($(gridid).parent().width(), 10);
+	prevClick: function(gridid){ //to left
+		var left = this.getLeft($(gridid));
+		var maxDelta = this.width - parseInt($(gridid).parent().width(), 10);
 		
-		if ( (left % otherAtclsTouchSlider.colWidth) === 0) { //No click during sliding
-			left -=  otherAtclsTouchSlider.colWidth;
+		if ( (left % this.colWidth) === 0) { //No click during sliding
+			left -=  this.colWidth;
 		
 			if (Math.abs(left) <= Math.abs(maxDelta)) {
-				otherAtclsTouchSlider.doSlide($(gridid), left, '0.5s');
+				this.doSlide($(gridid), left, '0.5s');
 			} 
 		}
 	},
 		
-	prevClick: function(gridid){ //to right
-		var left = otherAtclsTouchSlider.getLeft($(gridid));
+	nextClick: function(gridid){ //to right
+		var left = this.getLeft($(gridid));
 		
-		if ( (left % otherAtclsTouchSlider.colWidth) === 0) { //No click during sliding
-			left +=  otherAtclsTouchSlider.colWidth;
+		if ( (left % this.colWidth) === 0) { //No click during sliding
+			left +=  this.colWidth;
 		
 			if(left <= 0){
-				otherAtclsTouchSlider.doSlide($(gridid), left, '0.5s');
+				this.doSlide($(gridid), left, '0.5s');
 			} 
 		}
 	},
@@ -205,31 +210,19 @@ var otherAtclsTouchSlider = {
 	},
 		
 	makeTouchable: function(/*string*/ gridid) {
-		 $(gridid).each(function() {
-			this.ontouchstart = function(e) {
+		$(gridid).each(function() {
+			 
+			this.addEventListener("touchstart", function(e){
 				otherAtclsTouchSlider.touchStart($(this), e);
-			};
+			}, false);
 				
-			this.ontouchmove = function(e) {
-				otherAtclsTouchSlider.touchMove($(this), e);				
-				//	e.preventDefault();		
-			};		
+			this.addEventListener("touchmove", function(e) {
+				otherAtclsTouchSlider.touchMove($(this), e);					
+			}, false);		
 				
-			this.ontouchend = function(e) {
-			//	e.preventDefault();
-					
-				if (otherAtclsTouchSlider.sliding) {
-					otherAtclsTouchSlider.sliding = false;
-					otherAtclsTouchSlider.touchEnd($(this), e);
-			//		return false;
-				} else {
-					/*
-					   We never slid so we can just return true
-					   and perform the default touch end
-					 */
-					return true;
-				}
-			};
+			this.addEventListener("touchend", function(e) {					
+				otherAtclsTouchSlider.touchEnd($(this), e);
+			}, false);
 		});
 	},		
 
@@ -238,81 +231,80 @@ var otherAtclsTouchSlider = {
 	 * variables about where the touch started.  We also record the
 	 * start time so we can do momentum.
 	 */
-	touchStart: function(/*JQuery*/ elem, /*event*/ e) {
-		 elem.css({
+	touchStart: function(/*JQuery*/ elem, /*event*/ e) {		
+		elem.css({
 			'-ms-transition': 'left 0s',
 			'-moz-transition': 'left 0s',
 			'-o-transition': 'left 0s',
 			'transition': 'left 0s'
-		 });
+		});
 		 
-		 otherAtclsTouchSlider.startX = e.targetTouches[0].clientX;
-		 otherAtclsTouchSlider.startLeft = otherAtclsTouchSlider.getLeft(elem);
-		 otherAtclsTouchSlider.touchStartTime = new Date().getTime(); 
+		this.startX = e.targetTouches[0].clientX;
+		this.startY = e.targetTouches[0].clientY;
+		this.slider = 0; // Starting position
+		this.startLeft = this.getLeft(elem);
+		this.touchStartTime = new Date().getTime(); 
+		
+	//	this.log("startX: " + this.startX);
 	},
 		
-	/**
-	 * While they are actively dragging we just need to adjust the
-	 * position of the grid using the place they started and the
-	 * amount they've moved.
-	 */
-	touchMove: function(/*JQuery*/ elem, /*event*/ e) {
-		if (!otherAtclsTouchSlider.sliding) {
-			//elem.parent().addClass('sliding');
-		}
-			 
-		otherAtclsTouchSlider.sliding = true;
-			 
-		var deltaX = e.targetTouches[0].clientX - otherAtclsTouchSlider.startX;
-		var left = deltaX + otherAtclsTouchSlider.startLeft;
+	touchMove: function(/*JQuery*/ elem, /*event*/ e) {		
+		var deltaX = e.targetTouches[0].clientX - this.startX;
+		var deltaY = e.targetTouches[0].clientY - this.startY;
+		
+		if (( (this.slider === 0 ) ) &&
+			( Math.abs(deltaY) > Math.abs(deltaX)) ) {		
 			
-		elem.css({
-			left: left + 'px'
-		});
+			//Default sliding			
+			this.slider = -1; //Default sliding position
+			
+		} else if (this.slider != -1) {		
+			//this sliding
+			e.preventDefault();
+			this.slider = 1; //this sliding position
+			
+			var left = deltaX + this.startLeft;
+			
+			elem.css({
+				left: left + 'px'
+			});
 			 
-		if (otherAtclsTouchSlider.startX > e.targetTouches[0].clientX) {
-			/*
-			* Sliding to the left
-			*/
-			otherAtclsTouchSlider.slidingLeft = true;
-		} else {
-			/*
-			* Sliding to the right
-			*/
-			otherAtclsTouchSlider.slidingLeft = false;
+			if (this.startX > e.targetTouches[0].clientX) {
+				//Sliding to the left
+				this.slidingLeft = true;
+			} else {
+				// Sliding to the right
+				this.slidingLeft = false;
+			}
 		}
 	},	
 		
-	/**
+	/*
 	 * When the touch ends we need to adjust the grid for momentum
 	 * and to snap to the grid.  We also need to make sure they
 	 * didn't drag farther than the end of the list in either
 	 * direction.
 	 */
 	touchEnd: function(/*JQuery*/ elem, /*event*/ e) {
-		 if (otherAtclsTouchSlider.getLeft(elem) > 0) {
+		 if (this.getLeft(elem) > 0) {
 			 // This means they dragged to the right past the first item
-			 otherAtclsTouchSlider.doSlide(elem, 0, '1s');
+			 this.doSlide(elem, 0, '1s');
 			 
-			 otherAtclsTouchSlider.startX = null;
-		 } else if ( Math.abs(otherAtclsTouchSlider.getLeft(elem))  > ( otherAtclsTouchSlider.width - elem.parent().width() )) {
+			 this.startX = null;
+		 } else if ( Math.abs(this.getLeft(elem))  > ( this.width - elem.parent().width() )) {
 			 // This means they dragged to the left past the last item
-			 otherAtclsTouchSlider.doSlide(elem, '-' + (otherAtclsTouchSlider.width - elem.parent().width()), '1s');
+			 this.doSlide(elem, '-' + (this.width - elem.parent().width()), '1s');
 			 
-			 otherAtclsTouchSlider.startX = null;
+			 this.startX = null;
 		 } else {
 			 /*
 				This means they were just dragging within the bounds of the grid
 				and we just need to handle the momentum and snap to the grid.
 			  */
-			 otherAtclsTouchSlider.slideMomentum(elem, e);
+			 this.slideMomentum(elem, e);
 		 }
 	},
 		
-	/**
-	 * A little helper to parse off the 'px' at the end of the left
-	 * CSS attribute and parse it as a number.
-	 */
 	getLeft: function(/*JQuery*/ elem) {
 		 return parseInt(elem.css('left'), 10); 
 	},
@@ -328,25 +320,25 @@ var otherAtclsTouchSlider = {
 		 });
 			 
 		 if (x === 0) {
-			 $('.js-prev').removeClass('is-active');
-			 $('.js-next').addClass('is-active');
-		 } else if (Math.abs(x) === otherAtclsTouchSlider.width - parseInt(elem.parent().width(), 10) ){
 			 $('.js-next').removeClass('is-active');
 			 $('.js-prev').addClass('is-active');
+		 } else if (Math.abs(x) === this.width - parseInt(elem.parent().width(), 10) ){
+			 $('.js-prev').removeClass('is-active');
+			 $('.js-next').addClass('is-active');
 		 } else {
 			 $('.js-prev').addClass('is-active');
 			 $('.js-next').addClass('is-active');
 		 }
 	},	
 		
-	/**
+	/*
 	 * If the user drags their finger really fast we want to push 
 	 * the slider a little farther since they were pushing a large 
 	 * amount. 
 	 */
 	slideMomentum: function(/*jQuery*/ elem, /*event*/ e) {
-		 var slideAdjust = (new Date().getTime() - otherAtclsTouchSlider.touchStartTime) * 65;
-		 var left = otherAtclsTouchSlider.getLeft(elem);
+		 var slideAdjust = (new Date().getTime() - this.touchStartTime) * 65;
+		 var left = this.getLeft(elem);
 			 
 		 /*
 			We calculate the momentum by taking the amount of time they were sliding
@@ -355,7 +347,7 @@ var otherAtclsTouchSlider = {
 			If they slide a long distance fast then they have a lot of momentum.
 		  */
 			 
-		 var changeX = 12000 * (Math.abs(otherAtclsTouchSlider.startLeft) - Math.abs(left));
+		 var changeX = 12000 * (Math.abs(this.startLeft) - Math.abs(left));
 			 
 		 slideAdjust = Math.round(changeX / slideAdjust);
 			 
@@ -365,26 +357,26 @@ var otherAtclsTouchSlider = {
 		  * We need to calculate the closest column so we can figure out
 		  * where to snap the grid to.
 		  */
-		 var t = newLeft % otherAtclsTouchSlider.colWidth;
+		 var t = newLeft % this.colWidth;
 			 
-		 if ((Math.abs(t)) > ((otherAtclsTouchSlider.colWidth / 2))) {
+		 if ((Math.abs(t)) > ((this.colWidth / 2))) {
 			 // Show the next cell
-			 newLeft -= (otherAtclsTouchSlider.colWidth - Math.abs(t));
+			 newLeft -= (this.colWidth - Math.abs(t));
 		 } else {
 			 // Stay on the current cell
 			 newLeft -= t;
 		 }
 			 
-		 if (otherAtclsTouchSlider.slidingLeft) {
-			 var maxLeft = parseInt('-' + (otherAtclsTouchSlider.width - elem.parent().width()), 10);
+		 if (this.slidingLeft) {
+			 var maxLeft = parseInt('-' + (this.width - elem.parent().width()), 10);
 			 // Sliding to the left
-			 otherAtclsTouchSlider.doSlide(elem, Math.max(maxLeft, newLeft), '0.5s');
+			 this.doSlide(elem, Math.max(maxLeft, newLeft), '0.5s');
 		 } else {
 			 // Sliding to the right
-			 otherAtclsTouchSlider.doSlide(elem, Math.min(0, newLeft), '0.5s');
+			 this.doSlide(elem, Math.min(0, newLeft), '0.5s');
 		 }
 			 
-		 otherAtclsTouchSlider.startX = null;
+		 this.startX = null;
 	}
 }	
 
@@ -530,6 +522,7 @@ jQuery(document).ready(function(){
 	function menuSlideIn(event){
 		event.preventDefault();		
 		$('.js-head-nav').show().animate({right: "0px"}, 700);
+		$('body').css('overflow','hidden'); //Stop Scroll Propagation
 	}
 	
 	//Close menu
@@ -545,18 +538,20 @@ jQuery(document).ready(function(){
 		if ( winSize > 640 || right === "-240px" ||
 			 mthMenuIcon || (mthMenuIconEls.length > 0) || 
 			 mthHdNav || (mthHdNavEls.length > 0) ) {
-				 
-			return;
+			
+			return true;
 			
 		} else if ( displ === "block" ) {
+			
 			event.preventDefault();		
 			$('.js-head-nav').animate({right: "-240px"}, 700, function(){
 						$(this).hide();
 					});
+			$('body').css('overflow','auto'); //Scroll Propagation
 		}
 	}	
 	
-	$(document).on('click', menuSlideOut);
+	$(document).on('click touchstart', menuSlideOut);
 	$('.js-menu-icon').on('click', menuSlideIn);
 		
 	//	Mobile Menu Touchslider Start	

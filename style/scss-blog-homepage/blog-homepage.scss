@@ -194,7 +194,8 @@ button {
 	@include respond-to(max-width, 640px) {
 		direction:rtl;
 		display: none;
-		max-height: 100%;
+		height: 230px;
+//		max-height: 100%;
 		overflow-y: auto;
 		position: fixed;
 		right: -240px;

@@ -130,7 +130,7 @@ button {
   .head-nav {
     direction: rtl;
     display: none;
-    max-height: 100%;
+    height: 230px;
     overflow-y: auto;
     position: fixed;
     right: -240px;

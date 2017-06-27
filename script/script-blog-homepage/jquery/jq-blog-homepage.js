@@ -1,74 +1,70 @@
 //------------------------------------------
 //	Mobile Menu Touchslider
 //-------------------------------------------
-var mobileMenuTouchSlider = {	
+var mobileMenuTouchSlider = {
+	log: function(msg) {
+//		var p = document.getElementById('log');
+//		p.innerHTML = p.innerHTML + "<br>" + msg;
+	},
+	
 	createSlidePanel: function(/*string*/ panel, /*el width px*/ width) {	
-		mobileMenuTouchSlider.width = width;
+		this.width = width;
 	
 		try {
 			document.createEvent('TouchEvent');
-			mobileMenuTouchSlider.makeTouchable(panel);
+			this.makeTouchable(panel);
 		} catch (e) {
-			// Then we aren't on a device that supports touch
-		
+			//  Then we aren't on a device that supports touch
 		} finally {					
+
 		}
 	},
 		
 	makeTouchable: function(/*string*/ panel) {
 		$(panel).each(function() {
-			this.ontouchstart = function(e) {
+			this.addEventListener('touchstart', function(e) {
 				mobileMenuTouchSlider.touchStart($(this), e);
-			};
+			}, false);
 				
-			this.ontouchmove = function(e) {
+			this.addEventListener('touchmove', function(e) {
 				mobileMenuTouchSlider.touchMove($(this), e);
+			}, false);		
 				
-			//	e.stopPropagation();
-				e.preventDefault();
-				if (mobileMenuTouchSlider.sliding) {
-					
-				}
-			};		
-				
-			this.ontouchend = function(e) {		
-				if (mobileMenuTouchSlider.sliding) {
-					mobileMenuTouchSlider.sliding = false;
-					mobileMenuTouchSlider.touchEnd($(this), e);
-				} else {
-					/*
-					   We never slid so we can just return true
-					   and perform the default touch end
-					 */
-					return true;
-				}
-			};	
+			this.addEventListener('touchend', function(e) {		
+				mobileMenuTouchSlider.touchEnd($(this), e);
+			}, false);	
 		});
 	},		
 
 	touchStart: function(/*JQuery*/ elem, /*event*/ e) {	
-		mobileMenuTouchSlider.startX = e.targetTouches[0].clientX;
-		mobileMenuTouchSlider.startY = e.targetTouches[0].clientY;
-		mobileMenuTouchSlider.startRight = mobileMenuTouchSlider.getRight(elem); 
+		this.startX = e.targetTouches[0].clientX;
+		this.startY = e.targetTouches[0].clientY;
+		this.slider = 0; // Starting position	
+		this.startRight = this.getRight(elem); 
+		
+//		this.log("startRight: " + this.startRight);
 	},
 		
-	/*
-		While they are actively dragging horizontally we just need to adjust the
-		position of the panel using the place they started and the
-		amount they've moved.
-	*/
 	touchMove: function(/*JQuery*/ elem, /*event*/ e) { 
-		var deltaX = mobileMenuTouchSlider.startX - e.targetTouches[0].clientX;
-		var deltaY = mobileMenuTouchSlider.startY - e.targetTouches[0].clientY;
+		var deltaX = e.targetTouches[0].clientX - this.startX;
+		var deltaY = e.targetTouches[0].clientY - this.startY;
 			
-		if (Math.abs(deltaY) < Math.abs(deltaX)) {
-			mobileMenuTouchSlider.sliding = true;	
-
-			var right = deltaX + mobileMenuTouchSlider.startRight;
+		if (( (this.slider === 0 ) ) &&
+			( Math.abs(deltaY) > Math.abs(deltaX)) ) {				
+			//Default sliding
+			this.slider = -1; //Default sliding position
+							
+		} else if (this.slider != -1) {	
+			//this sliding
+			e.preventDefault();
+			
+			this.slider = 1; //this sliding position		
+			var right = this.startRight - deltaX;;
+			
 			if (right > 0) {
 				right = 0;
-			} 
-			
+			} 		
+
 			elem.css({
 				right: right + 'px'
 			});	
@@ -80,7 +76,7 @@ var mobileMenuTouchSlider = {
 		hide or show it.  
 	 */
 	touchEnd: function(/*JQuery*/ elem, /*event*/ e) {
-		mobileMenuTouchSlider.doSlide(elem, e);
+		this.doSlide(elem, e);
 	},
 		
 	getRight: function(/*JQuery*/ elem) {
@@ -88,21 +84,21 @@ var mobileMenuTouchSlider = {
 	},
 		
 	doSlide: function(/*jQuery*/ elem, /*event*/ e) {
-		var right = mobileMenuTouchSlider.getRight(elem);		 
+		var right = this.getRight(elem);		 
 			 
-		if ((Math.abs(right)) < ((mobileMenuTouchSlider.width / 2))) {
+		if ((Math.abs(right)) < ((this.width / 2))) {
 			// Show panel
 			elem.animate({right: 0 + 'px'}, 300); 
 				
 		} else {
 			// Hide panel
-			elem.animate({right: -mobileMenuTouchSlider.width + 'px'}, 300, function(){
+			elem.animate({right: -this.width + 'px'}, 300, function(){
 					$(this).hide();
 				});				
 		}
 			 		 
-		mobileMenuTouchSlider.startX = null;
-		mobileMenuTouchSlider.startY = null;
+		this.startX = null;
+		this.startY = null;
 	}
 };
 
@@ -196,6 +192,7 @@ jQuery(document).ready(function(){
 	function menuSlideIn(event){
 		event.preventDefault();		
 		$('.js-head-nav').show().animate({right: "0px"}, 700);
+		$('body').css('overflow','hidden'); //Stop Scroll Propagation
 	}
 	
 	function menuSlideOut(event){
@@ -216,8 +213,9 @@ jQuery(document).ready(function(){
 		} else if ( displ === "block" ) {
 			event.preventDefault();		
 			$('.js-head-nav').animate({right: "-240px"}, 700, function(){
-						$(this).hide();
-					});
+				$(this).hide();
+			});
+			$('body').css('overflow','auto'); //Scroll Propagation
 		}
 	}	
 	

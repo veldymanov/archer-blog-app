@@ -164,7 +164,7 @@ a.email {
   .head-nav {
     direction: rtl;
     display: none;
-    max-height: 100%;
+    height: 240px;
     overflow-y: auto;
     position: fixed;
     right: -240px;
