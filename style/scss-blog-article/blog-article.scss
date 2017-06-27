@@ -236,7 +236,7 @@ a.email {
 
 .head-nav {
 	@include respond-to(max-width, 640px) {
-		direction:rtl;
+		direction: rtl;
 		display: none;
 		height: 240px;
 //		max-height: 100%;

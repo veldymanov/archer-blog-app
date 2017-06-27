@@ -246,7 +246,7 @@ var otherAtclsTouchSlider = {
 		this.startLeft = this.getLeft(elem);
 		this.touchStartTime = new Date().getTime(); 
 		
-	//	this.log("startX: " + this.startX);
+//		this.log("startX: " + this.startX);
 	},
 		
 	touchMove: function(/*JQuery*/ elem, /*event*/ e) {		
@@ -384,7 +384,7 @@ var otherAtclsTouchSlider = {
 
 //------------------------------------------
 //	Interesting Articles, Other Articles, 
-//  and related Posts Loader (Main)
+//  and Related Posts Loader (Main)
 //------------------------------------------
 var articlesLoader = {
 	
