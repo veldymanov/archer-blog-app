@@ -425,41 +425,36 @@ a.email {
 
 .cap-social-item {
 	background: darken($lightTextColor, 10%);
+	height: 32px;
 	margin-right: 1%;
 	padding: 0 3px 0 3px;
 		div {
 			display: inline-block;
 			height: 20px;
+			left: 50%;
+			overflow: hidden;
 			position: relative;
+			top: 50%;
+			transform: translate(-50%, -50%);
 		}	
 	&.tweet {		
 		div {
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
+			
+
 		}
 	}
 	&.fcbk { 
 		div {
-			height: 32px;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
+			height: 34px;
 		}
 	}
 	&.lnkdn {
 		div {
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
 		}
 	}
 	&.gplus {
-		padding-left: 7%;
 		div {
-			overflow: hidden;
-			top: 50%;
-			transform: translateY(-50%);
+			width: 80px;
 		}		
 	}			
 }

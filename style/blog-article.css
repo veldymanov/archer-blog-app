@@ -323,31 +323,21 @@ a.email {
 
 .cap-social-item {
   background: #e6e6e6;
+  height: 32px;
   margin-right: 1%;
   padding: 0 3px 0 3px; }
   .cap-social-item div {
     display: inline-block;
     height: 20px;
-    position: relative; }
-  .cap-social-item.tweet div {
     left: 50%;
+    overflow: hidden;
+    position: relative;
     top: 50%;
     transform: translate(-50%, -50%); }
   .cap-social-item.fcbk div {
-    height: 32px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%); }
-  .cap-social-item.lnkdn div {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%); }
-  .cap-social-item.gplus {
-    padding-left: 7%; }
-    .cap-social-item.gplus div {
-      overflow: hidden;
-      top: 50%;
-      transform: translateY(-50%); }
+    height: 34px; }
+  .cap-social-item.gplus div {
+    width: 80px; }
 
 .cap-cmnt {
   align-items: center;
