@@ -296,20 +296,15 @@ a.email {
   display: flex;
   justify-content: space-between; }
   .cap .cap-social {
-    flex-basis: 50%; }
+    flex-basis: 70%; }
   .cap .cap-cmnt {
     flex-basis: 40%; }
   @media (max-width: 875px) {
-    .cap .cap-social {
-      flex-basis: 70%; }
     .cap .cap-cmnt {
       display: none; } }
   @media (max-width: 640px) {
     .cap .cap-social {
       flex-basis: 100%; } }
-  @media (max-width: 420px) {
-    .cap {
-      display: none; } }
 
 .cap-social {
   display: flex;
