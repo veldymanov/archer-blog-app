@@ -117,13 +117,15 @@ var otherAtclsTouchSlider = {
 		var padding = padding || 0;
 		var x = padding;
 				
-		$(gridid).each(function() {		
-			$(this).parent().css({			//<div class="touch-slider-parent">	 
+		$(gridid).each(function() {	
+			//<div class="touch-slider-parent">	
+			$(this).parent().css({			 
 					margin: '0 auto',
 					overflow: 'hidden'
 				});
 
-			$(this).css({					//<ul class="touch-slider"> === gridid
+			//<ul class="touch-slider"> === gridid
+			$(this).css({					
 				'height': cellHeight + 'px',
 				'left': '0px',
 				'list-style-type': "none",
@@ -132,13 +134,14 @@ var otherAtclsTouchSlider = {
 				'position': 'relative'
 			});
 				
+			// <li class="touch-slider-item js-touch-slider-item">
 			$(this).children('.js-touch-slider-item').each(function() {
-				$(this).css({				// <li class="touch-slider-item js-touch-slider-item">
-					"width": cellWidth + 'px',
+				$(this).css({				
 					"height": '100%',
 					"left": x + 'px',
 					"position": 'absolute',
-					"top": padding + 'px'
+					"top": padding + 'px',
+					"width": cellWidth + 'px'
 				});
 
 				x += cellWidth + padding;
@@ -153,7 +156,10 @@ var otherAtclsTouchSlider = {
 			otherAtclsTouchSlider.colWidth = cellWidth + padding;
 			
 			try {
+				//Touch events check
 				document.createEvent('TouchEvent');
+				
+				//Make our panel respondto all of the touch events.
 				otherAtclsTouchSlider.makeTouchable(gridid);
 			} catch (e) {
 				// Then we aren't on a device that supports touch
@@ -165,8 +171,8 @@ var otherAtclsTouchSlider = {
 				$(window).resize(function(){ otherAtclsTouchSlider.touchAreaSize(gridid) });
 					
 				//Sliding by click			
-				$('.js-prev').on('click', function(){ otherAtclsTouchSlider.prevClick(gridid)});
-				$('.js-next').on('click', function(){ otherAtclsTouchSlider.nextClick(gridid)});
+				$('.js-prev').on('click', function(){ otherAtclsTouchSlider.prevClick(gridid) });
+				$('.js-next').on('click', function(){ otherAtclsTouchSlider.nextClick(gridid) });
 			}
 		});			
 	},
@@ -198,7 +204,7 @@ var otherAtclsTouchSlider = {
 		
 	// Fit Touch Area to Elements Quantity
 	touchAreaSize: function(gridid){
-		$(gridid).parent().each(function(){ 
+		$(gridid).parent().each( function(){ 
 				var touchAreaWidth100 = parseInt($(this).css({width: '100%'}).css('width'), 10);
 				var elNumber = parseInt(touchAreaWidth100 / otherAtclsTouchSlider.colWidth, 10);
 					
@@ -242,7 +248,7 @@ var otherAtclsTouchSlider = {
 		 
 		this.startX = e.targetTouches[0].clientX;
 		this.startY = e.targetTouches[0].clientY;
-		this.slider = 0; // Starting position
+		this.slider = 0; 							// Starting sliding position
 		this.startLeft = this.getLeft(elem);
 		this.touchStartTime = new Date().getTime(); 
 		
@@ -257,12 +263,12 @@ var otherAtclsTouchSlider = {
 			( Math.abs(deltaY) > Math.abs(deltaX)) ) {		
 			
 			//Default sliding			
-			this.slider = -1; //Default sliding position
+			this.slider = -1; 						//Default sliding position
 			
 		} else if (this.slider != -1) {		
 			//this sliding
 			e.preventDefault();
-			this.slider = 1; //this sliding position
+			this.slider = 1; 						//this sliding position
 			
 			var left = deltaX + this.startLeft;
 			
@@ -379,7 +385,7 @@ var otherAtclsTouchSlider = {
 			 
 		 this.startX = null;
 	}
-}	
+};	
 
 
 //------------------------------------------
@@ -517,7 +523,7 @@ jQuery(document).ready(function(){
 	//*******************************************
 	//	Mobile menu
 	//*******************************************
-	//Open munu
+	//Open menu
 	function menuSlideIn(event){
 		event.preventDefault();		
 		$('.js-head-nav').show().animate({right: "0px"}, 700);
