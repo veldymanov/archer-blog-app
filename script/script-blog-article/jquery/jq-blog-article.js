@@ -515,6 +515,108 @@ var articlesLoader = {
 	}
 };
 
+//------------------------------------------
+//	Comments object 
+//------------------------------------------
+var commentsObj = {
+	
+	jsonFileName: function() {
+		/***************************
+		* Define json file name
+		****************************/
+		var pathArray = window.location.pathname.split( '/' );
+		var fileArray = pathArray[pathArray.length - 1].split('.');
+		var cmntsJsonFile = fileArray[0] + "-comments.json";
+		
+		return cmntsJsonFile;
+	},
+	
+	loadComments: function() {	
+	
+		$.ajax(this.jsonFileName(), {
+			contextType: 'application/json',
+			dataType: 'json',
+//			context: articlesLoader,			
+			timeout: 3000,
+			success: function(resp) {
+				var l = resp.length;
+				var cmntsItem;
+
+				for(var i = 0; i < l; i++){
+			
+					cmntsItem = $("<li class='cmnts-item'>" +
+									"<h5>" + resp[i].name + "</h5>"	+
+									"<div>" + 
+										"<p>" + resp[i].cmnt + "</p>"+ 
+										"<span class='clearfix'><a href='javascript:void(0);'>Reply</a></span>" +
+									"</div>"
+								);			
+					$("#js-cmntsList").append(cmntsItem);
+				}	
+			},
+			error: function(request, errorType, errorMessage) {
+				alert('Error: ' + errorType + ' with message: ' + errorMessage);
+			},
+			complete: function() {
+
+			}
+		});			
+	},
+	
+	addNewComment: function(resp){
+		
+		//Clear all comments
+		this.removeComments();
+		
+		//Load updated comments + new comment
+		$.ajax(this.jsonFileName(), {
+//			type: "POST",
+//			data: $("#js-cmnts-form").serialize(), // serializes the form's elements.
+			contextType: 'application/json',
+			dataType: 'json',
+//			context: articlesLoader,			
+			timeout: 3000,
+			success: function(resp) {
+				var l = resp.length;
+				var cmntsItem;
+
+				for(var i = 0; i < l; i++){
+			
+					cmntsItem = $("<li class='cmnts-item'>" +
+									"<h5>" + resp[i].name + "</h5>"	+
+									"<div>" + 
+										"<p>" + resp[i].cmnt + "</p>"+ 
+										"<span class='clearfix'><a href='javascript:void(0);'>Reply</a></span>" +
+									"</div>"
+								);			
+					$("#js-cmntsList").append(cmntsItem);
+				}	
+			},
+			error: function(request, errorType, errorMessage) {
+				alert('Error: ' + errorType + ' with message: ' + errorMessage);
+			},
+			complete: function() {
+				//Add new comment
+				var formElements = $("#js-cmnts-form").serializeArray();
+				var cmntsItem = $("<li class='cmnts-item'>" +
+									"<h5>" + formElements[0].value + "</h5>"	+
+									"<div>" + 
+										"<p>" + formElements[2].value + "</p>"+ 
+										"<span class='clearfix'><a href='javascript:void(0);'>Reply</a></span>" +
+									"</div>"
+								);
+				$("#js-cmntsList").append(cmntsItem);
+				
+				//Return all inputs to default
+				document.forms["cmnts-form"].reset();
+			}
+		});			
+	},
+	
+	removeComments: function(){
+		$("#js-cmntsList").empty();
+	}
+};
 
 //**************************************************
 //	jQuery
@@ -571,15 +673,26 @@ jQuery(document).ready(function(){
 	
 	//*******************************************
 	//	Comments
-	//*******************************************	
-	$('#js-btn-add-cmnt').on('click', function(){
-		$('#js-comments').show();
+	//*******************************************
+	//Load comments
+	$("#js-btn-add-cmnt").on('click', function(){
+		if ($(".cmnts-item").length === 0) {	
+			commentsObj.loadComments();
+		}	
+		console.log($(".cmnts-item"));
+		
 		$('#js-cmnts-form').show();
 		$(this).hide();
 	}); 
-	id="js-form-submit"
-	$('#js-form-submit').on('click', function(){
+	
+	//Add new comment
+	$("#js-cmnts-form").submit(function(e) {			
+		commentsObj.addNewComment();
+		
 		$('#js-cmnts-form').hide();
 		$('#js-btn-add-cmnt').show();
+
+		e.preventDefault();
 	}); 
+	
 });
