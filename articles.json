@@ -36,60 +36,60 @@
 					{
 						"id"		: "0016",
 						"date"		: "January 1, 1970",
-						"atclRef"	: "gps-vehicle.html",
+						"atclRef"	: "article.html",
 						"mobView"	: "",
-						"imgName"	: "atcl-1", 
-						"head"		: "How to Develop Applications for the Internet of Things",
-						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQ",
-						"relatedAtclsId": []		
+						"imgName"	: "article", 
+						"head"		: "Article Name",
+						"txt"		: "Article description",
+						"relatedAtclsId": ["0008", "0013", "0015", "0017"]		
 					},
 					{
 						"id"		: "0015",
 						"date"		: "January 1, 1970",
-						"atclRef"	: "gps-vehicle.html",
+						"atclRef"	: "article.html",
 						"mobView"	: "attn-mobile",
 						"imgName"	: "atcl-2", 
-						"head"		: "Banking and Finanace Software Development",
+						"head"		: "Check 15",
 						"txt"		: "Today, many financial institutions are thinking about introducing a different software to treir businesses, because it can eliminate execessive bureaucratic hurdles in the bank infrastructure. Many business processes can be automated QQQQQQQQQQQQQQQQQQQQQQQQQQQQQ",
 						"relatedAtclsId": []		
 					},
 					{
 						"id"		: "0014",
 						"date"		: "January 1, 1970",
-						"atclRef"	: "gps-vehicle.html",
+						"atclRef"	: "article.html",
 						"mobView"	: "",
 						"imgName"	: "atcl-3", 
-						"head"		: "5 Myths about Embedded Systems Development",
+						"head"		: "Check 14",
 						"txt"		: "This system works as follows: user (sometimes it is not a driver) places special GPS-receiver in a vehicle. This receiver connect with a common mobile phone. After installation of both devices all the neccessary information about car QQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQQ",
 						"relatedAtclsId": []		
 					},
 					{
 						"id"		: "0013",
 						"date"		: "January 1, 1970",
-						"atclRef"	: "gps-vehicle.html",
+						"atclRef"	: "article.html",
 						"mobView"	: "attn-mobile",
 						"imgName"	: "atcl-4", 
-						"head"		: "5 Myths about Embedded Systems Development",
+						"head"		: "Check 13",
 						"txt"		: "There were a lot of attempts to integrate modern technologies into the heaith care system. And today when these technologies are at their peak for us it became obvious that traditional medicine industry has a lot of remnants of QQQQQQQQQqqQQQq",
 						"relatedAtclsId": []		
 					},
 					{
 						"id"		: "0012",
 						"date"		: "January 1, 1970",
-						"atclRef"	: "gps-vehicle.html",
+						"atclRef"	: "article.html",
 						"mobView"	: "",
 						"imgName"	: "atcl-5", 
-						"head"		: "Smart Home App Development",
+						"head"		: "Check 12",
 						"txt"		: "The concept of a \"smart home\" has radically changed our views on the way of the living in a modern house. This technology combines in a single whole digital video surveillance system, alarm system, access control systems, climate qqqqqqqqqqqq",
 						"relatedAtclsId": []		
 					},
 					{
 						"id"		: "0011",
 						"date"		: "January 1, 1970",
-						"atclRef"	: "gps-vehicle.html",
+						"atclRef"	: "article.html",
 						"mobView"	: "",
 						"imgName"	: "atcl-6", 
-						"head"		: "What You Need to Know about HMI Development?",
+						"head"		: "Check 11",
 						"txt"		: "The term \"Human Machine Interface\" implices all range of control panels that are used almost everywhere - from simple record players to a plane cabins. Human machine interface systems exercise control over processes, monitor QQQQQQQQQQqq",
 						"relatedAtclsId": []		
 					},					
@@ -99,7 +99,7 @@
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "",
 						"imgName"	: "atcl-7", 
-						"head"		: "How to Build The Best Hospital Management Software",
+						"head"		: "Check 10",
 						"txt"		: "The best hospital management software is a set of services which help to create th unified work system of all medical departments - from therapeutic...",
 						"relatedAtclsId": []		
 					},	
@@ -109,7 +109,7 @@
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "",
 						"imgName"	: "atcl-1", 
-						"head"		: "Article 9",
+						"head"		: "ACheck 9",
 						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzzz",
 						"relatedAtclsId": []		
 					},
@@ -119,7 +119,7 @@
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "attn-mobile",
 						"imgName"	: "atcl-2", 
-						"head"		: "Article 8",
+						"head"		: "Check 8",
 						"txt"		: "Today, many financial institutions are thinking about introducing a different software to treir businesses, because it can eliminate execessive bureaucratic hurdles in the bank infrastructure. Many business processes can be automated QQQQQQQQQQQQQQQQQQQQQQQQQQQQQ",
 						"relatedAtclsId": []		
 					},	
@@ -129,7 +129,7 @@
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "",
 						"imgName"	: "atcl-3", 
-						"head"		: "Article 7",
+						"head"		: "Check 7",
 						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzz",
 						"relatedAtclsId": []		
 					},
@@ -139,7 +139,7 @@
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "",
 						"imgName"	: "atcl-4", 
-						"head"		: "Article 6",
+						"head"		: "Check 6",
 						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzzz",
 						"relatedAtclsId": []		
 					},
@@ -149,7 +149,7 @@
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "",
 						"imgName"	: "atcl-5", 
-						"head"		: "Article 5",
+						"head"		: "Check 5",
 						"txt"		: "Today, many financial institutions are thinking about introducing a different software to treir businesses, because it can eliminate execessive bureaucratic hurdles in the bank infrastructure. Many business processes can be automated QQQQQQQQQQQQQQQQQQQQQQQQQQQQQ",
 						"relatedAtclsId": []		
 					},
@@ -159,7 +159,7 @@
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "",
 						"imgName"	: "atcl-6", 
-						"head"		: "Article 4",
+						"head"		: "Check 4",
 						"txt"		: "Today, many financial institutions are thinking about introducing a different software to treir businesses, because it can eliminate execessive bureaucratic hurdles in the bank infrastructure. Many business processes can be automated QQQQQQQQQQQQQQQQQQQQQQQQQQQQQ",
 						"relatedAtclsId": []
 					},
@@ -169,7 +169,7 @@
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "",
 						"imgName"	: "atcl-7", 
-						"head"		: "Article 3",
+						"head"		: "Check 3",
 						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzz",
 						"relatedAtclsId": []		
 					},
@@ -179,7 +179,7 @@
 						"atclRef"	: "javascript:void(0);",
 						"mobView"	: "attn-mobile",
 						"imgName"	: "atcl-1", 
-						"head"		: "Article 2",
+						"head"		: "Check 2",
 						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzzz",
 						"relatedAtclsId": []		
 					},	
@@ -189,7 +189,7 @@
 						"atclRef"	: "javascript:void(0);l",
 						"mobView"	: "",
 						"imgName"	: "atcl-2", 
-						"head"		: "Article 1",
+						"head"		: "Check 1",
 						"txt"		: "The internet of Things (IoT) refers to devices and objects connected to the Internet or other devices and machines that operate independently of human involvement. The Iot is a stage of the development of the internet ... QQQQQQQQqqqqqq xxxxxxxxxxxxxxxxxxxxxx zzzzzzzzzzzzzzzzzzz",
 						"relatedAtclsId": []		
 					}				

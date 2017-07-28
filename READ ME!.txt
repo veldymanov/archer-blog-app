@@ -2,15 +2,17 @@
 *				Connection new article to blog-homepage! 
 *						MUST ACTIONS!
 ********************************************************************************
-1. In the root 'Blog' folder create new article: "jps-vehicle.html".
+1. In the '...\archer-blog-app\articles' folder create new article: "jps-vehicle.html". 
+	('article.html' take as example)
 
 2. Create next article's pictures for "Blog Homepage":
-	2.1 "jps-vehicle.mobile.jpg", size 100*100. ( Will be used in 'mobile' version of Blog Homepage "index.html". )
-	2.2 "jps-vehicle.desktop.jpg", size 280*170. ( Will be used in 'desktop' version  and as 'big' pictures in 'mobile' version of Blog Homepage "index.html". Also will be used in mobile version of article page "jps-vehicle.html")
+	2.0 "jps-vehicle.hd.jpg" (Main article picture. Also used in sharing on facebook and other social nets. Set manualy in "jps-vehicle.html".)
+	2.1 "jps-vehicle.desktop.jpg", size 280*170. ( Will be used in 'desktop' version  and as 'big' pictures in 'mobile' version of Blog Homepage "index.html". Also will be used in mobile version of article page "jps-vehicle.html". Set automatically after changes in "articles.json".)
+	2.2 "jps-vehicle.mobile.jpg", size 100*100. ( Will be used in 'mobile' version of Blog Homepage "index.html".  Set automatically after changes in "articles.json".)
 	
-	Name before ".mobile.jpg" and before ".desktop.jpg" MUST BE THE SAME!!!!
+	Name before ".hd.jpg", ".mobile.jpg" and ".desktop.jpg" MUST BE THE SAME!!!!
 	
-3. Put "jps-vehicle.mobile.jpg" and "jps-vehicle.desktop.jpg" to "images\articles-imgs\" folder.
+3. Put "jps-vehicle.mobile.jpg" and "jps-vehicle.desktop.jpg" to "...\archer-blog-app\articles\images" folder.
 
 4. Add to "articles.json" next:
 					{
@@ -36,7 +38,9 @@
 			"relatedAtclsId" - related article's ID numbers which will be reflected in 
 							   "Related Posts" in "Article Page".
 
-5. Save "articles.json". Reload "index.html". Vualia!  Your article is published
+5. Save "articles.json" in root blog catalog "...\archer-blog-app". Reload "index.html". Vualia!  Your article is published
+
+6. Don't forget to adjust SDK of Twitter, Facebook, Linkedin and Google+.
 
 
 ********************************************************************************
@@ -44,4 +48,4 @@
 ********************************************************************************
 To increase efficiency of article's management next is recommended:
 
-1. All the rest pictures of article add to "images\articles-imgs\" folder. Build name of picture as next: "gps-vehicle-wave.hd.jpg".
+1. All the rest pictures of article add to "...\archer-blog-app\articles\images" folder. Build name of picture as next: "gps-vehicle-wave.hd.jpg".

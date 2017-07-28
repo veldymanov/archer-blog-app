@@ -395,7 +395,7 @@ var otherAtclsTouchSlider = {
 var articlesLoader = {
 	
 	loadArticles: function(nmbrs) {	
-		$.ajax('articles.json', {
+		$.ajax('../articles.json', {
 			contextType: 'application/json',
 			dataType: 'json',
 //			context: articlesLoader,			
@@ -493,12 +493,12 @@ var articlesLoader = {
 					var relatedAtclDate = $("<p class='related-atcl-date'>" + 
 											resp["articles"][j].date + "</p>");
 					var relatedAtclFig = $( "<figure class='related-atcl-fig'>" + 
-						"<img src='images/articles-imgs/" +	
+						"<img src='images/" +	
 								resp["articles"][j].imgName + ".mobile.jpg" + 
 							"'alt='Article picture'" + 
-							"srcset = 'images/articles-imgs/" + 
+							"srcset = 'images/" + 
 								resp["articles"][j].imgName + ".mobile.jpg 640w," +
-							"images/articles-imgs/" + 
+							"images/" + 
 								resp["articles"][j].imgName + ".desktop.jpg 1200w' /></figure>" );			
 					var h4 = $("<h4></h4>");
 					var a = $("<a href=" + resp["articles"][j].atclRef + ">" 

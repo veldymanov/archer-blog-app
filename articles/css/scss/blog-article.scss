@@ -18,12 +18,12 @@ $btnBgrColor: #EBEBEB;
 //-----------------------------------------
 @font-face {
     font-family: proxima-nova;
-    src: url(../fonts/ProximaNova-Light.otf);
+    src: url(../../fonts/ProximaNova-Light.otf);
 }
 
 @font-face {
     font-family: proxima-nova;
-	src: url(../fonts/ProximaNovaSoft-Bold.otf);
+	src: url(../../fonts/ProximaNovaSoft-Bold.otf);
     font-weight: bold;
 }
 
@@ -215,13 +215,13 @@ a.email {
 }
 
 .logo {
-	background: url(../images/as-logo-moto.svg) no-repeat;
+	background: url(../../images/as-logo-moto.svg) no-repeat;
 	background-size: contain;
 	height: 55px;
 	width: 260px;
 	
 	@include respond-to(max-width, 500px){
-		background: url(../images/as-logo.svg) no-repeat;
+		background: url(../../images/as-logo.svg) no-repeat;
 		background-size: contain;
 		width: 70px;
 	}	
@@ -240,7 +240,7 @@ a.email {
 		display: none;
 		height: 240px;
 		max-height: 100%;
-		overflow-y: auto;
+		overflow-y: scroll;
 		position: fixed;
 		right: -240px;
 		top: 0;
@@ -268,7 +268,7 @@ a.email {
 }
 
 .menu-icon-link {
-	background: url(../images/menu-icon.png)  no-repeat center;
+	background: url(../../images/menu-icon.png)  no-repeat center;
 	background-size: contain;
 	display: block;
 	height: 100%;
@@ -293,7 +293,7 @@ a.email {
 		&.home-icon {
 			padding: 5px 0;
 			div {
-				background: url(../images/icon-home-white.png) no-repeat;
+				background: url(../../images/icon-home-white.png) no-repeat;
 				background-position: center;
 				background-size: contain;
 				text-indent: -9999px;
@@ -677,7 +677,7 @@ a.email {
 					color: #555;
 				}
 				&::before {
-					background: url(../images/article-icon-reply.png) no-repeat; 
+					background: url(../images/icons/article-icon-reply.png) no-repeat; 
 					background-position: center;
 					background-size: contain;
 					content: ""; 
@@ -748,7 +748,7 @@ a.email {
 		}
 		
 		div {				//flex-item
-			background: url(../images/article-icon-reload.png) no-repeat; 
+			background: url(../images/icons/article-icon-reload.png) no-repeat; 
 			background-size: contain;
 			flex-basis: 25px; 
 			height: 25px;
@@ -786,7 +786,7 @@ a.email {
 //Interesting Articles List
 //**************************
 .intr-atcls {			
-	background: darken(#ffffff, 5%) url(../images/article-archer.png) no-repeat;
+	background: darken(#ffffff, 5%) url(../images/icons/article-archer.png) no-repeat;
 	background-position: center;
 	background-size: 70%; 
 	color: $brandColor;
@@ -879,8 +879,8 @@ a.email {
 //	Footer
 //------------------------------------------
 .foot {
-	background: url(../images/bg-contacts-teaser-people.png) no-repeat,
-				url(../images/bg-contacts-teaser.jpg) no-repeat; //bg-contacts-teaser-people.png
+	background: url(../../images/bg-contacts-teaser-people.png) no-repeat,
+				url(../../images/bg-contacts-teaser.jpg) no-repeat; //bg-contacts-teaser-people.png
 	background-position:  right bottom, center;
 	background-size: 120%, cover;
 	height: 240px;
@@ -989,22 +989,22 @@ a.email {
 		width: 100%;
 	}
 	&.skype {
-		background: #fff url(../images/icon-skype.png) no-repeat;
+		background: #fff url(../../images/icon-skype.png) no-repeat;
 		background-position: center;
 		background-size: 47px;	
 	}
 	&.facebook {
-		background: #fff url(../images/icon-facebook.png) no-repeat;
+		background: #fff url(../../images/icon-facebook.png) no-repeat;
 		background-position: center;
 		background-size: 47px;		
 	}
 	&.linkedin {
-		background: #fff url(../images/icon-linkedin.png) no-repeat;
+		background: #fff url(../../images/icon-linkedin.png) no-repeat;
 		background-position: center;
 		background-size: 47px;		
 	}
 	&.twitter {
-		background: #fff url(../images/icon-twitter.png) no-repeat;
+		background: #fff url(../../images/icon-twitter.png) no-repeat;
 		background-position: center;
 		background-size: 47px;			
 	}

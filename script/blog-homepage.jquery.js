@@ -127,24 +127,24 @@ var articlesLoader = {
 				
 				if (resp["articles"][i].mobView === "attn-mobile") {
 					atcl.append( "<figure class='atcl-fig'>" + 
-						"<img src='images/articles-imgs/" +	
+						"<img src='articles/images/" +	
 								resp["articles"][i].imgName + ".desktop.jpg" + 
 							"'alt='Article " + (i + 1) + ", Picture'/></figure>" );
 				} else {	
 					atcl.append( "<figure class='atcl-fig'>" + 
-						"<img src='images/articles-imgs/" +	
+						"<img src='articles/images/" +	
 								resp["articles"][i].imgName + ".mobile.jpg" + 
 							"'alt='Article " + (i + 1) + ", Picture'" + 
-							"srcset = 'images/articles-imgs/" + 
+							"srcset = 'articles/images/" + 
 								resp["articles"][i].imgName + ".mobile.jpg 640w," +
-							"images/articles-imgs/" + 
+							"articles/images/" + 
 								resp["articles"][i].imgName + ".desktop.jpg 1200w' /></figure>" );
 				}	
 				
 				atcl.append("<div class='atcl-txt'><h3>" + resp["articles"][i].head + "</h3><p>" + resp["articles"][i].txt + "</p></div>");
 				
 					
-				atcl.append("<div class='atcl-btn'><a  href=" + resp["articles"][i].atclRef + ">Read More</a></div>");
+				atcl.append("<div class='atcl-btn'><a  href=articles/" + resp["articles"][i].atclRef + ">Read More</a></div>");
 					
 				atclsItem.append(atcl);	
 				$('#atcls').append(atclsItem);
