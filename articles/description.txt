@@ -6,12 +6,16 @@
 5. Кроссбраузерность "-2 поколения назад". (IE11, Google Chrome49). 
 6. Оптимизация графики.
 
+
 /*Browser Sync*/
 C:\Users\User\Documents\GitHub\archer\archer-blog-app
 	browser-sync start --server --files "*.*"
 
-
-
 /*Sass --watch*/
 C:\Users\User\Documents\GitHub\archer\archer-blog-app\articles\css
 	sass --watch scss:scss/..
+
+	
+/*Twitter Share Plugin*/
+	https://dev.twitter.com/web/tweet-button
+	https://dev.twitter.com/web/tweet-button/parameters#button
