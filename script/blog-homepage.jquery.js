@@ -159,7 +159,7 @@ var articlesLoader = {
 			$.ajax('articles.json', {
 				contextType: 'application/json',
 				dataType: 'json',
-				timeout: 3000,
+				timeout: 13000,
 		//		context: atclsBtn,
 				success: function(response) {									
 					articlesLoader.createArticles(response, nmbrs);

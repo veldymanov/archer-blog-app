@@ -15,10 +15,45 @@ C:\Users\User\Documents\GitHub\archer\archer-blog-app
 C:\Users\User\Documents\GitHub\archer\archer-blog-app\articles\css
 	sass --watch scss:scss/..
 
-	
-/*Twitter Share Plugin*/
+****************************************************************************************	
+*Twitter Share Plugin
+****************************************************************************************
 	https://dev.twitter.com/web/tweet-button
 	https://dev.twitter.com/web/tweet-button/parameters#button
 	
-/*Facebook Share Plugin*	
+	
+*****************************************************************************************	
+*Facebook Share Plugin
+*****************************************************************************************
 	https://developers.facebook.com/apps/
+	https://developers.facebook.com/tools/debug/sharing/
+	
+	//Fill meta
+	<meta property="og:url"			content="https://veldymanov.github.io/archer-blog-app/articles/article.html"/>	
+	<meta property="fb:app_id" 		content="370631626685005"/> 
+	<meta property="og:type"   		content="website"/>  
+	<meta property="og:title"  		content="Article title"/> 
+	<meta property="og:description" content="Article description" />
+	<meta property="og:image"  		content="https://veldymanov.github.io/archer-blog-app/articles/images/article.mobile.jpg" /> 
+	
+	//Fill " ...appId=370631626685005"
+	<!-- Load Facebook SDK for JavaScript -->
+	<div id="fb-root"></div>
+	<script>
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=370631626685005";
+			fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+	</script>	
+	
+*****************************************************************************************	
+*Linkedin Share Plugin
+*****************************************************************************************
+
+
+*****************************************************************************************	
+*Google+ Share Plugin
+*****************************************************************************************
