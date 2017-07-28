@@ -399,7 +399,7 @@ var articlesLoader = {
 			contextType: 'application/json',
 			dataType: 'json',
 //			context: articlesLoader,			
-			timeout: 3000,
+			timeout: 8000,
 			success: function(response) {
 				articlesLoader.response = response;
 				articlesLoader.createInterestingArticles(nmbrs);

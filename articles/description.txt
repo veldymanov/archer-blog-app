@@ -19,3 +19,6 @@ C:\Users\User\Documents\GitHub\archer\archer-blog-app\articles\css
 /*Twitter Share Plugin*/
 	https://dev.twitter.com/web/tweet-button
 	https://dev.twitter.com/web/tweet-button/parameters#button
+	
+/*Facebook Share Plugin*	
+	https://developers.facebook.com/apps/
