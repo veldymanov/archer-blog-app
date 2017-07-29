@@ -679,7 +679,6 @@ jQuery(document).ready(function(){
 		if ($(".cmnts-item").length === 0) {	
 			commentsObj.loadComments();
 		}	
-		console.log($(".cmnts-item"));
 		
 		$('#js-cmnts-form').show();
 		$(this).hide();
