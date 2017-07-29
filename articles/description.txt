@@ -20,7 +20,16 @@ C:\Users\User\Documents\GitHub\archer\archer-blog-app\articles\css
 ****************************************************************************************
 	https://dev.twitter.com/web/tweet-button
 	https://dev.twitter.com/web/tweet-button/parameters#button
+	https://cards-dev.twitter.com/validator
 	
+	//Takes data from 'facebook' meta
+	
+	//Add description: data-text="Article Name"
+		<!--Twitter Plugin Tweet Button-->
+		<a class="twitter-share-button"  
+			href="https://twitter.com/share"								
+			data-text="Article Name">
+			Tweet</a>	
 	
 *****************************************************************************************	
 *Facebook Share Plugin
@@ -34,7 +43,7 @@ C:\Users\User\Documents\GitHub\archer\archer-blog-app\articles\css
 	<meta property="og:type"   		content="website"/>  
 	<meta property="og:title"  		content="Article title"/> 
 	<meta property="og:description" content="Article description" />
-	<meta property="og:image"  		content="https://veldymanov.github.io/archer-blog-app/articles/images/article.mobile.jpg" /> 
+	<meta property="og:image"  		content="https://veldymanov.github.io/archer-blog-app/articles/images/article.hd.jpg" /> 
 	
 	//Fill " ...appId=370631626685005"
 	<!-- Load Facebook SDK for JavaScript -->
@@ -57,3 +66,4 @@ C:\Users\User\Documents\GitHub\archer\archer-blog-app\articles\css
 *****************************************************************************************	
 *Google+ Share Plugin
 *****************************************************************************************
+https://developers.google.com/+/web/share/
