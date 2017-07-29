@@ -37,6 +37,7 @@ C:\Users\User\Documents\GitHub\archer\archer-blog-app\articles\css
 *****************************************************************************************	
 *Facebook Share Plugin
 *****************************************************************************************
+	https://developers.facebook.com/docs/plugins/like-button
 	https://developers.facebook.com/apps/
 	https://developers.facebook.com/tools/debug/sharing/
 	
