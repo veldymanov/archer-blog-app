@@ -76,6 +76,18 @@ button {
     text-decoration: none;
     width: 100%; }
 
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 3px; }
+
+::-webkit-scrollbar-track {
+  background-color: rgba(206, 206, 206, 0.6);
+  border-radius: 8px; }
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  background-color: rgba(97, 97, 97, 0.8); }
+
 .clearfix {
   zoom: 1; }
   .clearfix::before, .clearfix::after {
@@ -194,13 +206,14 @@ a.email {
 
 .menu-item-link {
   display: block;
+  font-size: 16px;
   height: 100%;
   text-decoration: none;
   width: 100%; }
   @media (max-width: 640px) {
     .menu-item-link {
-      font-weight: bold;
       color: #FFFFFF;
+      font-weight: bold;
       padding: 10px; }
       .menu-item-link:active, .menu-item-link:hover, .menu-item-link:focus {
         color: #bfbfbf; } }
@@ -470,13 +483,14 @@ a.email {
   padding: 20px 10px 0px 20px;
   position: relative; }
   .cmnts-item div::before {
-    border-color: transparent transparent #EEE transparent;
-    border-style: solid;
-    border-width: 15px 20px;
+    background: url(../images/icons/comments-arrow.svg) center no-repeat;
+    background-size: contain;
     content: "";
-    left: 5px;
+    height: 30px;
+    left: -6px;
     position: absolute;
-    top: -29px; }
+    top: -20px;
+    width: 30px; }
   .cmnts-item div p {
     font-size: 0.9em;
     line-height: 1.2; }
@@ -491,8 +505,7 @@ a.email {
       .cmnts-item div span a:hover, .cmnts-item div span a:focus, .cmnts-item div span a:active {
         color: #555; }
       .cmnts-item div span a::before {
-        background: url(../images/icons/article-icon-reply.png) no-repeat;
-        background-position: center;
+        background: url(../images/icons/article-icon-reply.png) center no-repeat;
         background-size: contain;
         content: "";
         display: block;
