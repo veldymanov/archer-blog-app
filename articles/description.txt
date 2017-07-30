@@ -33,6 +33,9 @@ C:\Users\User\Documents\GitHub\archer\archer-blog-app\articles\css
 			href="https://twitter.com/share"								
 			data-text="Article Name">
 			Tweet</a>	
+
+	//Make it loading async
+	<script async>
 	
 *****************************************************************************************	
 *Facebook Share Plugin
@@ -60,13 +63,19 @@ C:\Users\User\Documents\GitHub\archer\archer-blog-app\articles\css
 			js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=370631626685005";
 			fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));
-	</script>	
+	</script>
+
+	//Make it loading async
+	<script async>
 	
 *****************************************************************************************	
 *Linkedin Share Plugin
 *****************************************************************************************
 	https://developer.linkedin.com/plugins/share
 
+	//Make it loading async
+	<script async>
+	
 *****************************************************************************************	
 *Google+ Share Plugin
 *****************************************************************************************
