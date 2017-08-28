@@ -39,6 +39,7 @@
 3. Put "jps-vehicle.mobile.jpg" and "jps-vehicle.desktop.jpg" to "...\archer-blog-app\articles\images" folder.
 
 4. Add to "articles.json" next:
+
 					{
 						"id"			: "0016",
 						"date"			: "June 15, 2017",
