@@ -51,6 +51,7 @@
 						"relatedAtclsId" : ["0001", "0002", "0003", "0004", "0005"]
 					},
 	where: 
+	
 			"id"			- articles id number ( +1 after previous article),
 			"date"			- article adding date,
 			"atclRef" 		- article's HTML file name (reference),
