@@ -39,6 +39,7 @@
 3. Put "jps-vehicle.mobile.jpg" and "jps-vehicle.desktop.jpg" to "...\archer-blog-app\articles\images" folder.
 
 4. Add to "articles.json" next:
+
 					{
 						"id"			: "0016",
 						"date"			: "June 15, 2017",
@@ -50,6 +51,7 @@
 						"relatedAtclsId" : ["0001", "0002", "0003", "0004", "0005"]
 					},
 	where: 
+	
 			"id"			- articles id number ( +1 after previous article),
 			"date"			- article adding date,
 			"atclRef" 		- article's HTML file name (reference),
